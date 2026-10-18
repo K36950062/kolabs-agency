@@ -43,9 +43,10 @@ jobs:
           args: >-
             --no-progress
             --accept 200,204,301,302,403,429
-            --exclude claude\.ai
-            --exclude fonts\.(googleapis|gstatic)\.com
-            site/
+            --exclude claude.ai
+            --exclude fonts.googleapis.com
+            --exclude fonts.gstatic.com
+	    site/
           fail: true
 
   deploy:
