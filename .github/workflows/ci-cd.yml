@@ -1,0 +1,76 @@
+# CI/CD for the KOLABS Agency website
+#
+# CI  (every push and every pull request): check the HTML and the links.
+# CD  (only pushes to main, and only if CI passed): publish to GitHub Pages.
+
+name: CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: # lets you re-run it by hand from the Actions tab
+
+permissions:
+  contents: read
+
+# Never run two deploys at once; a newer push replaces a queued one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: CI - check the site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate HTML
+        run: npx --yes html-validate@9.4.1 site/
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # claude.ai pages need a login, so a bot can't check them.
+          args: >-
+            --no-progress
+            --accept 200,204,301,302,403,429
+            --exclude claude\.ai
+            --exclude fonts\.(googleapis|gstatic)\.com
+            site/
+          fail: true
+
+  deploy:
+    name: CD - publish to GitHub Pages
+    needs: check
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v5
+
+      - name: Package the site folder
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
