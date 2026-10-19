@@ -366,6 +366,11 @@ footer a{color:var(--muted)}
   .plan-more[open] > .plan-more-body{padding-top:16px}
 }
 @media (prefers-reduced-motion:reduce){.plan-more > summary::after{transition:none}}
+
+/* section 6: how it works */
+.steps .bonus{justify-self:start;font:700 12px/1.3 var(--f-body);color:var(--blue-ink);background:var(--blue-soft);border:1px dashed var(--blue);padding:6px 9px;border-radius:999px}
+.steps-cta{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:22px 26px;background:var(--bg);border:1.5px solid var(--line);border-radius:10px}
+.steps-cta p{max-width:52ch;font-size:17px}
 </style>
 </head>
 <body>
@@ -380,7 +385,7 @@ footer a{color:var(--muted)}
       <a href="#features">Features</a>
       <a href="#work">Work</a>
       <a href="#pricing">Pricing</a>
-      <a href="#process">Process</a>
+      <a href="#process">How it works</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call</a>
@@ -682,15 +687,20 @@ footer a{color:var(--muted)}
   <section class="leaks" id="process">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">Process</p>
-        <h2>From free mock-up to live site.</h2>
+        <p class="label">How it works</p>
+        <h2>From first call to live site in four steps.</h2>
+        <p class="lede">No jargon and no surprises. You always know what happens next and what it costs.</p>
       </div>
       <ol class="steps">
-        <li><span class="n">STEP 1</span><h3>Free mock-up</h3><p>Send us your website. We audit it and design a new homepage for you, free.</p><span class="when">Within 1 week</span></li>
-        <li><span class="n">STEP 2</span><h3>20-minute call</h3><p>We walk you through the mock-up, ask how bookings come in, and recommend a package.</p><span class="when">Same week</span></li>
-        <li><span class="n">STEP 3</span><h3>Build</h3><p>You send photos, prices and logins. We build, you review, we revise.</p><span class="when">3 weeks</span></li>
-        <li><span class="n">STEP 4</span><h3>Launch</h3><p>We go live, test every booking path, and show you how to edit your pages.</p><span class="when">Launch day</span></li>
+        <li><span class="n">STEP 1</span><h3>Book a call</h3><p>20 minutes to talk about your business and your current website. Free, with no obligation.</p><span class="bonus">+ Free homepage mock-up</span><span class="when">Day 1</span></li>
+        <li><span class="n">STEP 2</span><h3>Pick your package</h3><p>Choose Starter, Growth or Complete, pay the 50% deposit, and send us your photos, logo and prices.</p><span class="when">Same week</span></li>
+        <li><span class="n">STEP 3</span><h3>Design and approve</h3><p>We design your pages in your brand. You review them and we revise until you're happy.</p><span class="when">Week 1&ndash;2</span></li>
+        <li><span class="n">STEP 4</span><h3>Build and launch</h3><p>We build every page, test it on phones and go live. Then you pay the remaining 50%.</p><span class="when">2&ndash;4 weeks</span></li>
       </ol>
+      <div class="steps-cta">
+        <p><b>Bring us your website, and we'll bring a free mock-up of your new homepage to the call.</b></p>
+        <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book your call</a>
+      </div>
     </div>
   </section>
 
