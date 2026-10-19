@@ -44,7 +44,7 @@ git push           # pipeline redeploys the previous version
 ## Check locally before pushing
 
 ```bash
-npx html-validate site/          # the same HTML check CI runs
+npx html-validate@9.4.1 site/    # the same HTML check CI runs
 npx serve site                   # preview at http://localhost:3000
 ```
 
