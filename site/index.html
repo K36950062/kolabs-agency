@@ -153,14 +153,6 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 
 /* leaks */
 .leaks{background:var(--paper);border-block:1px solid var(--line)}
-.leak-table{border-top:1.5px solid var(--ink)}
-.leak{display:grid;grid-template-columns:150px 1fr 1fr;gap:24px;padding-block:22px;border-bottom:1px solid var(--line);align-items:baseline}
-.leak .k{font-family:var(--f-mono);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.leak .p{font-weight:700;font-size:19px;letter-spacing:-.01em}
-.leak .f{color:var(--muted)}
-.leak .f b{color:var(--ink);font-weight:600}
-.leak-head{display:grid;grid-template-columns:150px 1fr 1fr;gap:24px;padding-block:12px;border-bottom:1px solid var(--line)}
-@media (max-width:760px){.leak,.leak-head{grid-template-columns:1fr;gap:6px}.leak-head{display:none}}
 
 /* pricing */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
@@ -222,6 +214,158 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 footer{padding-block:36px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--muted)}
+
+/* before / after visual */
+.ba{display:grid;grid-template-columns:1fr 1fr;align-items:end;max-width:600px;padding-top:28px;padding-left:12px}
+.ba-card{margin:0;min-width:0}
+.ba-card figcaption{font:600 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.ba-new figcaption{color:var(--blue);text-align:right}
+.ba-old{transform:rotate(-3deg);transform-origin:bottom right;margin-right:-14%;opacity:.92}
+.ba-new{position:relative;z-index:1;margin-left:-6%}
+.win{border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;background:#fff}
+.ba-new .win{box-shadow:10px 10px 0 var(--blue)}
+.win-bar{height:20px;display:flex;align-items:center;gap:5px;padding-inline:9px;border-bottom:1.5px solid var(--ink);background:var(--bg)}
+.win-bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+/* the "before" screen is drawn in a dated style on purpose, so its colours stay literal */
+.old-scr{background:#d9d9d9;font-family:"Times New Roman",Times,serif;color:#222;padding:8px;display:grid;gap:6px;aspect-ratio:4/5}
+.old-banner{background:#000080;color:#ffff00;font-weight:700;font-size:11px;text-align:center;padding:4px 2px;letter-spacing:.02em}
+.old-nav{font-size:9px;color:#0000ee;text-decoration:underline;text-align:center}
+.old-body{display:grid;grid-template-columns:1.2fr 1fr;gap:6px}
+.old-col{display:grid;gap:4px;align-content:start}
+.old-col span{height:5px;background:#9a9a9a}
+.old-col span:nth-child(3){width:70%}.old-col span:nth-child(5){width:50%}
+.old-img{border:2px inset #aaa;background:#bdbdbd;font-size:8px;color:#555;display:grid;place-items:center;min-height:54px}
+.old-note{font-size:9px;color:#b00000;font-style:italic}
+.old-foot{font-size:7.5px;color:#666;margin-top:auto}
+.new-scr{background:#fff;color:#0A0A0A;padding:10px;display:grid;gap:9px;aspect-ratio:4/5;align-content:start}
+.new-nav{display:flex;justify-content:space-between;align-items:center}
+.new-nav b{font:800 9px/1 var(--f-display);letter-spacing:.08em}
+.new-btn{justify-self:start;background:#1A3CFF;color:#fff;font:700 9px/1 var(--f-body);padding:6px 9px;border-radius:4px}
+.new-btn.sm{padding:4px 7px;font-size:8px}
+.new-hero{display:grid;gap:7px;background:#F4F5F9;border-radius:6px;padding:10px}
+.new-hero strong{font:800 14px/1.05 var(--f-display);letter-spacing:-.02em}
+.new-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.new-gallery i{aspect-ratio:1;border-radius:4px;background:#C9D1FF}
+.new-gallery i:nth-child(2){background:#8FA0FF}.new-gallery i:nth-child(3){background:#1A3CFF}
+.new-event{display:flex;gap:8px;align-items:center;border:1px solid #DDE0EA;border-radius:6px;padding:7px;font-size:9px;line-height:1.3}
+.new-event b{display:block;font-size:10px}
+.new-date{background:#0A0A0A;color:#fff;border-radius:4px;padding:4px 6px;text-align:center;font:600 8px/1.1 var(--f-mono)}
+.new-date b{font:800 12px/1 var(--f-display)}
+@media (max-width:920px){.ba{max-width:520px}}
+@media (max-width:520px){.ba-old{transform:rotate(-2deg)}}
+
+/* section 2: the problem (illustrated cards) */
+.probs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prob{background:var(--bg);border:1.5px solid var(--ink);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.prob-vis{height:136px;background:var(--paper);border-bottom:1.5px solid var(--ink);display:grid;place-items:center;padding:12px}
+.prob-txt{padding:18px 20px 22px;display:grid;gap:8px}
+.prob h3{margin:0;font-size:19px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.prob p{color:var(--muted);font-size:15px;line-height:1.5}
+.probs-next{margin-top:28px;font-weight:700;font-size:19px}
+.probs-next::after{content:" \2193";color:var(--blue)}
+/* the little pictures show "bad website" details, so their colours stay literal */
+.pv-call{position:relative;font:600 12px/1 var(--f-body);color:#667085;background:#fff;border:1.5px dashed #98A2B3;border-radius:6px;padding:10px 12px;white-space:nowrap}
+.pv-call::after{content:"";position:absolute;left:-6px;right:-6px;top:50%;height:2px;background:#D93025;transform:rotate(-8deg)}
+.pv-phone{width:58px;height:100px;border:2px solid var(--ink);border-radius:10px;background:#fff;overflow:hidden;padding:9px 5px}
+.pv-phone i{display:block;height:5px;background:#B8BCC6;margin-bottom:5px;width:150%}
+.pv-phone i:nth-child(2){width:120%}
+.pv-phone i:nth-child(4){width:175%;background:#D93025}
+.pv-note{background:#FFF4B8;color:#0A0A0A;padding:12px 14px;transform:rotate(-4deg);font:800 13px/1.25 var(--f-body);text-align:center;box-shadow:2px 3px 0 rgba(0,0,0,.14)}
+.pv-note small{display:block;margin-top:4px;color:#D93025;font-weight:600;font-size:11px}
+.pv-vs{display:flex;gap:12px;align-items:end}
+.pv-site{position:relative;width:62px;height:76px;border:1.5px solid var(--ink);border-radius:5px;background:#fff;padding:6px;display:grid;gap:4px;align-content:start}
+.pv-old{background:#DADADA}
+.pv-old i{height:4px;background:#999}
+.pv-new i{height:9px;border-radius:2px;background:#1A3CFF}
+.pv-new i + i{height:20px;background:#E8ECFF}
+.pv-badge{position:absolute;top:-9px;right:-9px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 11px/1 var(--f-body)}
+.pv-no{background:#D93025}
+.pv-yes{background:#1E8E3E}
+@media (max-width:1000px){.probs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.probs{grid-template-columns:1fr}}
+
+/* section 3: what you get (bento grid) */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(150px,auto);gap:14px}
+.b-tile{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0;overflow:hidden}
+.b-tile h3{margin:0;font-size:18px;font-weight:800;letter-spacing:-.015em}
+.b-tile p{color:var(--muted);font-size:15px;line-height:1.5}
+.b-wide{grid-column:span 2}
+.b-tall{grid-row:span 2}
+.b-ic{width:40px;height:40px;border-radius:10px;background:var(--blue-soft);color:var(--blue);display:grid;place-items:center;flex:none}
+.b-ic svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* the featured tile stays deep navy in both themes */
+.b-feature{grid-column:span 2;grid-row:span 2;background:#0B0F24;border-color:#232A4D;color:#fff}
+.b-feature h3{font-size:26px;color:#fff}
+.b-feature p{color:#A6ACBE}
+.b-feature .b-ic{background:#1B2350;color:#8FA0FF}
+.b-slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:auto;padding-top:14px}
+.b-slots span{font:600 12px/1 var(--f-mono);text-align:center;padding:11px 0;border-radius:6px;border:1px solid #2B2F45;color:#A6ACBE}
+.b-slots .on{background:#1A3CFF;border-color:#1A3CFF;color:#fff}
+.b-slots .x{text-decoration:line-through;opacity:.45}
+.b-phone{margin:auto auto 0;width:84px;height:150px;border:2px solid var(--ink);border-radius:14px;background:#fff;padding:10px 7px;display:grid;gap:6px;align-content:start}
+.b-phone i{height:8px;border-radius:2px;background:#DDE0EA}
+.b-phone i:first-child{height:14px;background:#1A3CFF}
+.b-phone i:nth-child(3){height:34px;background:#E8ECFF}
+.b-swatches{display:flex;gap:6px;margin-top:auto;padding-top:8px}
+.b-swatches i{width:22px;height:22px;border-radius:50%;border:1px solid var(--line)}
+.b-swatches i:nth-child(1){background:#1A3CFF}.b-swatches i:nth-child(2){background:#0A0A0A}.b-swatches i:nth-child(3){background:#FF6A1A}.b-swatches i:nth-child(4){background:#3FD0FF}
+.b-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:auto;padding-top:8px}
+.b-gallery i{height:46px;border-radius:6px;background:#C9D1FF}
+.b-gallery i:nth-child(2){background:#8FA0FF}.b-gallery i:nth-child(3){background:#1A3CFF}
+.b-serp{margin-top:auto;border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:grid;gap:2px;font-size:12px;line-height:1.35;color:var(--muted)}
+.b-serp small{color:#1E8E3E;font-size:11px}
+.b-serp b{color:var(--blue);font-size:14px}
+.b-teaser{border:1.5px dashed var(--blue)}
+.b-blur{filter:blur(4.5px);user-select:none}
+.b-ask{margin-top:auto;text-align:center;background:var(--blue);color:var(--on-blue);font-weight:700;font-size:14px;text-decoration:none;padding:10px 12px;border-radius:6px}
+.b-ask:hover{background:var(--blue-ink)}
+.b-cta{background:var(--blue);border-color:var(--blue)}
+.b-cta h3{font-size:22px;color:var(--on-blue)}
+.b-cta p{color:rgba(255,255,255,.82)}
+.b-cta-btn{margin-top:auto;align-self:flex-start;background:#fff;color:#1A3CFF;font-weight:700;font-size:15px;text-decoration:none;padding:12px 16px;border-radius:6px}
+.b-cta-btn:hover{background:#E8ECFF}
+@media (max-width:1000px){
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .b-feature{grid-row:span 1}
+}
+@media (max-width:560px){
+  .bento{grid-template-columns:1fr}
+  .b-wide,.b-feature{grid-column:span 1}
+  .b-tall{grid-row:span 1}
+  .b-phone{margin-top:12px}
+}
+
+/* section 4: examples */
+.case ul.chips{display:flex;flex-wrap:wrap;gap:6px}
+.case ul.chips li{display:inline-block;font:600 12px/1 var(--f-mono);letter-spacing:.04em;color:var(--blue-ink);background:var(--blue-soft);padding:6px 9px;border-radius:999px}
+.case ul.chips li::before{content:none}
+.work-foot{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.work-foot .note{margin-top:0;flex:1 1 360px}
+
+/* section 5: pricing */
+.plan{position:relative}
+.plan .pop{position:absolute;top:-12px;right:20px;background:var(--blue);color:var(--on-blue);font:700 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
+.plan-meta{font:500 12.5px/1.5 var(--f-mono);color:var(--muted)}
+.plan ul.feat-list li::before{content:"\2713";width:auto;height:auto;margin:0;background:none;color:var(--blue);font-weight:800}
+.plan ul.feat-list li small{color:var(--muted);font-size:13px}
+.plan ul.feat-list li.no{color:var(--muted);opacity:.55}
+.plan ul.feat-list li.no::before{content:"\2013";color:var(--muted)}
+.care{margin-top:20px;border:1.5px solid var(--line);border-radius:10px;padding:22px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px}
+.care h3{font-size:20px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;margin:0}
+.care p{color:var(--muted);font-size:15px;margin-top:6px;max-width:60ch}
+.care .price b{font-size:36px}
+
+/* pricing: collapsible feature lists on phones */
+.plan-more-body{display:grid;gap:18px}
+.plan-more > summary{display:none}
+@media (max-width:900px){
+  .plan-more > summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;list-style:none;font-weight:700;font-size:15px;color:var(--blue);padding-block:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .plan-more > summary::-webkit-details-marker{display:none}
+  .plan-more > summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .2s}
+  .plan-more[open] > summary::after{transform:rotate(225deg) translateY(-3px)}
+  .plan-more[open] > .plan-more-body{padding-top:16px}
+}
+@media (prefers-reduced-motion:reduce){.plan-more > summary::after{transition:none}}
 </style>
 </head>
 <body>
@@ -232,13 +376,14 @@ footer a{color:var(--muted)}
       <b>KOLABS</b><span>Agency</span>
     </a>
     <nav aria-label="Sections">
+      <a href="#fix">The problem</a>
+      <a href="#features">Features</a>
       <a href="#work">Work</a>
-      <a href="#fix">What we fix</a>
       <a href="#pricing">Pricing</a>
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary" href="#contact">Free mock-up</a>
+    <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call</a>
   </div>
 </header>
 
@@ -246,109 +391,202 @@ footer a{color:var(--muted)}
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="label">Websites for UK activity venues</p>
-        <h1 style="margin-top:18px">Websites that <em>fill your sessions.</em></h1>
-        <p class="lede">We redesign websites for ski slopes, paintball sites, climbing walls and other activity venues, so parents, stag groups and team organisers can find a price and book on their phone in under a minute.</p>
+        <p class="label">Websites for small businesses</p>
+        <h1 style="margin-top:18px">Your website should be <em>winning you customers.</em></h1>
+        <p class="lede">We build professional websites for small businesses, with online booking, galleries and event pages built in. Fixed price. Live in 2 to 4 weeks.</p>
         <div class="ctas">
-          <a class="btn btn-primary" href="#contact">Get a free homepage mock-up
+          <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a 20-minute call
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a class="btn btn-ghost" href="#work">See our work</a>
         </div>
         <ul class="facts">
-          <li>Fixed prices</li>
-          <li>Live in 3 weeks</li>
-          <li>Works with your booking system</li>
+          <li>Fixed price</li>
+          <li>Live in 2–4 weeks</li>
+          <li>You own the site</li>
         </ul>
       </div>
 
-      <div>
-        <div class="board" role="img" aria-label="Example booking grid for a Saturday, with most sessions booked">
-          <div class="board-top"><strong>Saturday sessions</strong><span class="mono" style="color:var(--muted)">Example venue</span></div>
-          <div class="board-grid">
-            <span></span><span class="h">Ski</span><span class="h">Tube</span><span class="h">Party</span><span class="h">Quad</span><span class="h">Laser</span>
-            <span class="t">09:00</span><i class="slot b"></i><i class="slot b"></i><i class="slot"></i><i class="slot b"></i><i class="slot b"></i>
-            <span class="t">10:30</span><i class="slot b"></i><i class="slot b"></i><i class="slot b"></i><i class="slot b"></i><i class="slot"></i>
-            <span class="t">12:00</span><i class="slot b"></i><i class="slot new"></i><i class="slot b"></i><i class="slot"></i><i class="slot b"></i>
-            <span class="t">13:30</span><i class="slot"></i><i class="slot b"></i><i class="slot b"></i><i class="slot b"></i><i class="slot new" style="animation-delay:1.8s"></i>
-            <span class="t">15:00</span><i class="slot b"></i><i class="slot b"></i><i class="slot new" style="animation-delay:2.6s"></i><i class="slot b"></i><i class="slot b"></i>
+      <div class="ba" role="img" aria-label="Before and after: a cluttered old website next to a clean modern website with booking, gallery and events">
+        <figure class="ba-card ba-old">
+          <figcaption>Before</figcaption>
+          <div class="win">
+            <div class="win-bar"><i></i><i></i><i></i></div>
+            <div class="old-scr">
+              <div class="old-banner">WELCOME TO OUR WEBSITE!!</div>
+              <div class="old-nav">Home | About | Prices | Photos | Contact | Links</div>
+              <div class="old-body">
+                <div class="old-col"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="old-img">photo.jpg</div>
+              </div>
+              <div class="old-note">To book please call us during office hours.</div>
+              <div class="old-foot">&copy; 2014 &middot; Best viewed in Internet Explorer</div>
+            </div>
           </div>
-          <div class="board-foot mono"><span class="legend"><span><i class="b"></i>Booked</span><span><i></i>Open</span></span><span>Booked online: <b>21 of 25</b></span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="who">
-    <div class="wrap">
-      <span class="label">Built for</span>
-      <ul>
-        <li>Ski &amp; snow slopes</li>
-        <li>Paintball &amp; laser tag</li>
-        <li>Quad &amp; off-road</li>
-        <li>Climbing walls</li>
-        <li>Trampoline parks</li>
-        <li>Escape rooms</li>
-        <li>Farm &amp; adventure parks</li>
-      </ul>
-    </div>
-  </div>
-
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="label">Work</p>
-        <h2>Two venues, redesigned around the booking.</h2>
-        <p class="lede">Each concept started with an audit of the venue's live site, then a new homepage built to fix what was costing them bookings.</p>
-      </div>
-      <div class="work-grid">
-        <article class="case">
-          <div class="shot hx" aria-hidden="true">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <div class="scr"><div class="mini-h">Yorkshire's freestyle <span>mountain.</span></div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
-            <span class="tag">Concept</span>
+        </figure>
+        <figure class="ba-card ba-new">
+          <figcaption>After</figcaption>
+          <div class="win">
+            <div class="win-bar"><i></i><i></i><i></i></div>
+            <div class="new-scr">
+              <div class="new-nav"><b>YOUR BRAND</b><span class="new-btn sm">Book now</span></div>
+              <div class="new-hero"><strong>Book your next session in seconds.</strong><span class="new-btn">Check availability</span></div>
+              <div class="new-gallery"><i></i><i></i><i></i></div>
+              <div class="new-event"><span class="new-date">SAT<b>14</b></span><span><b>Open day</b>Free taster sessions</span></div>
+            </div>
           </div>
-          <div><h3>Halifax Ski &amp; Snowboard Centre</h3><p class="where">Dry ski slope, snowtubing and parties · West Yorkshire</p></div>
-          <ul>
-            <li>Three separate mini-sites merged into one, so families see slope, snowtubing and parties together</li>
-            <li>A Book button on every price, replacing pop-ups that broke on phones</li>
-            <li>Party packages laid out with clear per-child pricing</li>
-          </ul>
-          <a class="more" href="https://claude.ai/artifact/GkKJBF1YtwoetLimUt6d61" target="_blank" rel="noopener">View the concept →</a>
-        </article>
-        <article class="case">
-          <div class="shot wp" aria-hidden="true">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <div class="scr"><div class="mini-h">Get <span>muddy.</span><br>Get wild.</div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
-            <span class="tag">Concept</span>
-          </div>
-          <div><h3>Wild Park Derbyshire</h3><p class="where">Paintball, quads, laser combat and ranges · Derbyshire</p></div>
-          <ul>
-            <li>An activity, date and group-size picker at the top of the page</li>
-            <li>All eight activities with age and price on the card, including one the old menu missed</li>
-            <li>Separate routes for stag and hen, kids' parties, corporate and schools</li>
-          </ul>
-          <a class="more" href="https://claude.ai/artifact/LUARMjTaev6J6atEA661dk" target="_blank" rel="noopener">View the concept →</a>
-        </article>
+        </figure>
       </div>
-      <p class="note">These are speculative concepts we made to show what we'd change. They aren't client projects, and neither venue is affiliated with KOLABS.</p>
     </div>
   </section>
 
   <section class="leaks" id="fix">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">What we fix</p>
-        <h2>Where activity venue websites lose bookings.</h2>
-        <p class="lede">We found these problems again and again when we audited venue sites.</p>
+        <p class="label">The problem</p>
+        <h2>Is your website costing you customers?</h2>
+        <p class="lede">Most small business websites lose customers in the same four ways. If any of these sound like yours, people are leaving before they ever contact you.</p>
       </div>
-      <div class="leak-table">
-        <div class="leak-head mono" aria-hidden="true"><span style="color:var(--muted)">Area</span><span style="color:var(--muted)">The problem</span><span style="color:var(--muted)">What we do</span></div>
-        <div class="leak"><span class="k">Booking</span><span class="p">"Call us to book"</span><span class="f"><b>Online booking on every page,</b> so evening and weekend browsers can book while they're on the site.</span></div>
-        <div class="leak"><span class="k">Prices</span><span class="p">Prices buried or out of date</span><span class="f"><b>One clear price list</b> with a Book button on each row.</span></div>
-        <div class="leak"><span class="k">Mobile</span><span class="p">Pop-ups and tables that break on phones</span><span class="f"><b>Built for phones first,</b> with a Book button that stays on screen.</span></div>
-        <div class="leak"><span class="k">Parties</span><span class="p">Party and group details hard to find</span><span class="f"><b>Dedicated pages</b> for parties, stag and hen, corporate and schools, with per-head pricing.</span></div>
-        <div class="leak"><span class="k">Content</span><span class="p">Last season's offers still showing</span><span class="f"><b>Pages you can edit yourself</b> in minutes, with no developer needed.</span></div>
-        <div class="leak"><span class="k">Search</span><span class="p">Duplicate pages and typos in titles</span><span class="f"><b>Clean page structure and local SEO</b> so you show up for "paintball near Derby".</span></div>
+      <div class="probs">
+        <article class="prob">
+          <div class="prob-vis" aria-hidden="true"><span class="pv-call">Call 01234 567890 to book</span></div>
+          <div class="prob-txt">
+            <h3>Customers can't book online.</h3>
+            <p>If the only way to book is to call or email, people browsing in the evening book with someone else.</p>
+          </div>
+        </article>
+        <article class="prob">
+          <div class="prob-vis" aria-hidden="true"><div class="pv-phone"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="prob-txt">
+            <h3>It looks bad on a phone.</h3>
+            <p>Most people find you on their phone. Tiny text and broken menus send them straight back to Google.</p>
+          </div>
+        </article>
+        <article class="prob">
+          <div class="prob-vis" aria-hidden="true"><div class="pv-note">SUMMER OFFER!<small>ends 31 Aug 2021</small></div></div>
+          <div class="prob-txt">
+            <h3>Old prices, photos and events.</h3>
+            <p>Out-of-date information makes customers wonder whether you're still open.</p>
+          </div>
+        </article>
+        <article class="prob">
+          <div class="prob-vis" aria-hidden="true">
+            <div class="pv-vs">
+              <div class="pv-site pv-old"><i></i><i></i><i></i><span class="pv-badge pv-no">&#10005;</span></div>
+              <div class="pv-site pv-new"><i></i><i></i><span class="pv-badge pv-yes">&#10003;</span></div>
+            </div>
+          </div>
+          <div class="prob-txt">
+            <h3>Competitors look more professional.</h3>
+            <p>Customers compare a few websites before choosing. A dated one loses before you've said a word.</p>
+          </div>
+        </article>
+      </div>
+      <p class="probs-next">Every one of these is fixable, and it doesn't take months.</p>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">What you get</p>
+        <h2>Everything your website needs to win customers.</h2>
+        <p class="lede">Each feature fixes a problem above. Choose what your business needs and we build it in.</p>
+      </div>
+      <div class="bento">
+        <article class="b-tile b-feature">
+          <span class="b-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span>
+          <h3>Online booking</h3>
+          <p>Customers pick a time and pay, 24/7, straight from your site.</p>
+          <div class="b-slots" aria-hidden="true"><span class="x">09:00</span><span>10:30</span><span class="on">12:00</span><span>13:30</span><span>15:00</span><span class="x">16:30</span><span>18:00</span><span>19:30</span></div>
+        </article>
+        <article class="b-tile b-tall">
+          <h3>Built for phones</h3>
+          <p>Sharp, fast and easy to use on every screen.</p>
+          <div class="b-phone" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="b-tile">
+          <span class="b-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 10v4h3l6 4V6L6 10H3z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span>
+          <h3>Event pages</h3>
+          <p>Promote open days, classes and offers.</p>
+        </article>
+        <article class="b-tile">
+          <h3>Matched to your brand</h3>
+          <p>Your colours, logo and style. Never a template look.</p>
+          <div class="b-swatches" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </article>
+        <article class="b-tile b-wide">
+          <h3>Photo gallery</h3>
+          <p>Show off your space, your work and your results.</p>
+          <div class="b-gallery" aria-hidden="true"><i></i><i></i><i></i></div>
+        </article>
+        <article class="b-tile">
+          <span class="b-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></span>
+          <h3>Clear structure</h3>
+          <p>Visitors find your prices and details in seconds.</p>
+        </article>
+        <article class="b-tile b-teaser">
+          <h3>Edit it yourself</h3>
+          <p class="b-blur" aria-hidden="true">Change prices, photos and events whenever you like, in minutes.</p>
+          <a class="b-ask" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Ask us on your call &rarr;</a>
+        </article>
+        <article class="b-tile b-wide">
+          <h3>Found on Google</h3>
+          <p>Set up so local customers find you when they search.</p>
+          <div class="b-serp" aria-hidden="true"><small>yourbusiness.co.uk</small><b>Your Business &ndash; Book online today</b><span>Classes, prices and open days. Book in seconds&hellip;</span></div>
+        </article>
+        <div class="b-tile b-wide b-cta">
+          <h3>Want all of this?</h3>
+          <p>We'll show you which features fit your business.</p>
+          <a class="b-cta-btn" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a 20-minute call &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Examples</p>
+        <h2>See what your new website could look like.</h2>
+        <p class="lede">Two example redesigns for real types of business, each built around the features above.</p>
+      </div>
+      <div class="work-grid">
+        <article class="case">
+          <div class="shot hx" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="scr"><div class="mini-h">Learn to ski.<br><span>Book in seconds.</span></div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
+            <span class="tag">Example</span>
+          </div>
+          <div><h3>Ski &amp; snowboard centre</h3><p class="where">Lessons, open sessions and kids' parties</p></div>
+          <ul class="chips">
+            <li>Online booking</li><li>Built for phones</li><li>Event pages</li>
+          </ul>
+          <ul>
+            <li>Lessons, open sessions and parties together in one place</li>
+            <li>A Book button next to every price</li>
+            <li>Party packages laid out with clear per-child pricing</li>
+          </ul>
+        </article>
+        <article class="case">
+          <div class="shot wp" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="scr"><div class="mini-h">Get <span>muddy.</span><br>Get wild.</div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
+            <span class="tag">Example</span>
+          </div>
+          <div><h3>Outdoor activity park</h3><p class="where">Paintball, quad biking, archery and group days</p></div>
+          <ul class="chips">
+            <li>Online booking</li><li>Clear structure</li><li>Photo gallery</li>
+          </ul>
+          <ul>
+            <li>An activity, date and group-size picker at the top of the page</li>
+            <li>Every activity shown with its age limit and price</li>
+            <li>Separate pages for parties, team days and school groups</li>
+          </ul>
+        </article>
+      </div>
+      <div class="work-foot">
+        <p class="note">These are example redesigns we created to show our approach. Yours is built around your business, your brand and your customers.</p>
+        <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Want one like this? Book a call</a>
       </div>
     </div>
   </section>
@@ -357,53 +595,86 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="sec-head">
         <p class="label">Pricing</p>
-        <h2>Fixed prices. No surprises.</h2>
-        <p class="lede">We're a new agency taking on our first five venues. Founding clients pay less and get our full attention. In return, we ask for a testimonial and permission to show the work.</p>
+        <h2>Pick the features you need.</h2>
+        <p class="lede">Three fixed-price packages, each adding to the last. We're a new agency, so our first five clients get founding prices. In return, we ask for a testimonial and permission to show your site.</p>
       </div>
       <div class="plans">
         <div class="plan">
-          <div><h3>Launch</h3><p class="for">For venues that need a modern site fast</p></div>
+          <div><h3>Starter</h3><p class="for">A modern, professional site that looks good on phones</p></div>
           <span class="badge">Founding price</span>
-          <div class="price"><b>£1,350</b><s>£1,950</s></div>
-          <ul>
-            <li>Up to 6 pages, designed for phones first</li>
-            <li>Book buttons wired to your booking system</li>
-            <li>Google Business Profile tidy-up</li>
-            <li>Basic local SEO</li>
-            <li>Live in 3 weeks</li>
-          </ul>
-          <a class="btn btn-ghost" href="#contact">Start with a mock-up</a>
+          <div class="price"><b>£650</b><s>£1,150</s></div>
+          <details class="plan-more" open>
+            <summary>See what's included</summary>
+            <div class="plan-more-body">
+              <p class="plan-meta">Up to 5 pages · Live in 2 weeks · 1 month aftercare</p>
+              <ul class="feat-list">
+                <li>Built for phones</li>
+                <li>Clear structure</li>
+                <li>Matched to your brand</li>
+                <li>Photo gallery</li>
+                <li><span>Found on Google <small>(basics)</small></span></li>
+                <li class="no">Online booking</li>
+                <li class="no">Event pages</li>
+                <li class="no">Edit it yourself</li>
+              </ul>
+            </div>
+          </details>
+          <a class="btn btn-ghost" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call about Starter</a>
         </div>
         <div class="plan main">
-          <div><h3>Growth</h3><p class="for">For venues that sell parties, groups and gift vouchers</p></div>
+          <span class="pop">Most popular</span>
+          <div><h3>Growth</h3><p class="for">For businesses that take bookings and run events</p></div>
           <span class="badge">Founding price</span>
-          <div class="price"><b>£2,450</b><s>£3,450</s></div>
-          <ul>
-            <li>Everything in Launch, up to 12 pages</li>
-            <li>Copy rewritten to sell your sessions</li>
-            <li>Party and group enquiry pages</li>
-            <li>Gift voucher page</li>
-            <li>Analytics that track bookings</li>
-          </ul>
-          <a class="btn btn-primary" href="#contact">Start with a mock-up</a>
+          <div class="price"><b>£1,150</b><s>£1,950</s></div>
+          <details class="plan-more" open>
+            <summary>See what's included</summary>
+            <div class="plan-more-body">
+              <p class="plan-meta">Up to 10 pages · Live in 3 weeks · 1 month aftercare</p>
+              <ul class="feat-list">
+                <li>Built for phones</li>
+                <li>Clear structure</li>
+                <li>Matched to your brand</li>
+                <li>Photo gallery</li>
+                <li><span>Found on Google <small>(basics)</small></span></li>
+                <li>Online booking</li>
+                <li>Event pages</li>
+                <li class="no">Edit it yourself</li>
+              </ul>
+            </div>
+          </details>
+          <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call about Growth</a>
         </div>
         <div class="plan">
-          <div><h3>Care plan</h3><p class="for">Optional, after launch</p></div>
-          <span class="badge">Founding price, first 12 months</span>
-          <div class="price"><b>£75</b><small>/ month</small><s>£95</s></div>
-          <ul>
-            <li>Hosting, updates and backups</li>
-            <li>Up to 1 hour of edits a month</li>
-            <li>Monthly bookings report</li>
-            <li>Cancel any time</li>
-          </ul>
-          <a class="btn btn-ghost" href="#contact">Ask about care</a>
+          <div><h3>Complete</h3><p class="for">For owners who want to run their own site and get found locally</p></div>
+          <span class="badge">Founding price</span>
+          <div class="price"><b>£1,950</b><s>£3,150</s></div>
+          <details class="plan-more" open>
+            <summary>See what's included</summary>
+            <div class="plan-more-body">
+              <p class="plan-meta">Up to 15 pages · Live in 4 weeks · 3 months aftercare</p>
+              <ul class="feat-list">
+                <li>Built for phones</li>
+                <li>Clear structure</li>
+                <li>Matched to your brand</li>
+                <li>Photo gallery</li>
+                <li><span>Found on Google <small>(full local setup)</small></span></li>
+                <li>Online booking</li>
+                <li>Event pages</li>
+                <li>Edit it yourself</li>
+              </ul>
+            </div>
+          </details>
+          <a class="btn btn-ghost" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call about Complete</a>
         </div>
       </div>
+      <div class="care">
+        <div><h3>Care plan <span class="badge">Optional</span></h3><p>Hosting, security updates, backups and up to 30 minutes of changes every month. Cancel any time.</p></div>
+        <div class="price"><b>£50</b><small>/ month</small><s>£75</s></div>
+      </div>
       <div class="terms">
-        <p><b>50% to start, 50% at launch</b>No monthly contract unless you choose the care plan.</p>
+        <p><b>50% to start, 50% at launch</b>You pay the rest only when your site is live.</p>
         <p><b>You own the site</b>Your domain, your content and your logins stay in your name.</p>
-        <p><b>Keep your booking system</b>Bookwhen, FareHarbor, Rezdy, Checkfront or your own: we connect to it.</p>
+        <p><b>Mix and match</b>Need one feature from a bigger package? Ask on your call and we'll quote it.</p>
       </div>
     </div>
   </section>
@@ -488,6 +759,15 @@ footer a{color:var(--muted)}
       }else{fallback()}
     }catch(e){fallback()}
   });
+})();
+</script>
+<script>
+/* pricing: feature lists start closed on phones and tablets, open on desktop */
+(function(){
+  var mq=window.matchMedia('(max-width:900px)');
+  function sync(){document.querySelectorAll('.plan-more').forEach(function(d){d.open=!mq.matches;});}
+  sync();
+  if(mq.addEventListener){mq.addEventListener('change',sync);}
 })();
 </script>
 </body>
