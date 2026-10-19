@@ -24,7 +24,7 @@ img{max-width:100%}
 :root{
   --blue:#1A3CFF; --blue-ink:#1430D6; --blue-soft:#E8ECFF;
   --ink:#0A0A0A; --bg:#FFFFFF; --paper:#F4F5F9; --line:#DDE0EA;
-  --muted:#596074; --on-blue:#FFFFFF; --booked:#1A3CFF; --free:#FFFFFF;
+  --muted:#596074; --on-blue:#FFFFFF;
   --strike:#8A90A2;
   --f-display:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -34,14 +34,14 @@ img{max-width:100%}
   :root:not([data-theme="light"]){
     --blue:#4D68FF; --blue-ink:#7B8FFF; --blue-soft:#141B3D;
     --ink:#F2F3F7; --bg:#0A0A0A; --paper:#121318; --line:#262833;
-    --muted:#9AA0B4; --on-blue:#FFFFFF; --booked:#4D68FF; --free:#0A0A0A;
+    --muted:#9AA0B4; --on-blue:#FFFFFF;
     --strike:#6C7186; color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
   --blue:#4D68FF; --blue-ink:#7B8FFF; --blue-soft:#141B3D;
   --ink:#F2F3F7; --bg:#0A0A0A; --paper:#121318; --line:#262833;
-  --muted:#9AA0B4; --on-blue:#FFFFFF; --booked:#4D68FF; --free:#0A0A0A;
+  --muted:#9AA0B4; --on-blue:#FFFFFF;
   --strike:#6C7186; color-scheme:dark;
 }
 
@@ -52,7 +52,6 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 @media (min-width:700px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
-.mono{font-family:var(--f-mono);font-size:13px;letter-spacing:.02em}
 .label{font-family:var(--f-mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
 h2{font-family:var(--f-display);font-weight:800;font-size:clamp(32px,4.4vw,52px);line-height:1.02;letter-spacing:-.035em;text-wrap:balance;max-width:16ch}
 .lede{color:var(--muted);font-size:19px;max-width:58ch}
@@ -92,30 +91,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 .facts li::before{content:"";width:8px;height:8px;background:var(--blue);border-radius:2px}
 .hero > .wrap > div{min-width:0}
 
-/* booking board */
-.board{border:1.5px solid var(--ink);border-radius:10px;background:var(--bg);overflow:hidden;box-shadow:10px 10px 0 var(--blue)}
-.board-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-bottom:1.5px solid var(--ink)}
-.board-top strong{font-weight:700;font-size:15px}
-.board-grid{display:grid;grid-template-columns:auto repeat(5,1fr);gap:6px;padding:16px}
-.board-grid .t{font-family:var(--f-mono);font-size:12px;color:var(--muted);align-self:center;padding-right:6px}
-.board-grid .h{font-family:var(--f-mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;padding-bottom:4px}
-.slot{height:30px;border-radius:4px;border:1.5px solid var(--line);background:var(--free)}
-.slot.b{background:var(--booked);border-color:var(--booked)}
-.slot.new{animation:fill 2.4s 1s both}
-@keyframes fill{0%,40%{background:var(--free);border-color:var(--line)}60%,100%{background:var(--booked);border-color:var(--booked)}}
-@media (prefers-reduced-motion:reduce){.slot.new{animation:none;background:var(--booked);border-color:var(--booked)}}
-.board-foot{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;border-top:1px solid var(--line);color:var(--muted);flex-wrap:wrap}
-.board-foot b{color:var(--ink)}
-.legend{display:flex;gap:14px}
-.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;border:1.5px solid var(--line)}
-.legend i.b{background:var(--booked);border-color:var(--booked)}
-
-@media (max-width:920px){.hero .wrap{grid-template-columns:1fr}.board{max-width:560px}}
-
-/* who strip */
-.who{border-block:1px solid var(--line);background:var(--paper)}
-.who .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding-block:22px}
-.who ul{display:flex;flex-wrap:wrap;gap:10px 22px;list-style:none;padding:0;font-weight:600}
+@media (max-width:920px){.hero .wrap{grid-template-columns:1fr}}
 
 /* work */
 .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
@@ -146,8 +122,6 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 .case ul{display:grid;gap:8px;padding:0;list-style:none}
 .case li{display:grid;grid-template-columns:18px 1fr;gap:8px}
 .case li::before{content:"→";color:var(--blue);font-weight:700}
-.case a.more{font-weight:700;color:var(--blue);text-decoration:none}
-.case a.more:hover{text-decoration:underline}
 .note{margin-top:32px;color:var(--muted);font-size:15px;max-width:70ch}
 @media (max-width:820px){.work-grid{grid-template-columns:1fr}}
 
@@ -198,18 +172,31 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 /* contact */
 .contact{background:var(--blue);color:var(--on-blue)}
 .contact .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
-.contact h2{color:var(--on-blue);max-width:14ch}
-.contact .lede{color:rgba(255,255,255,.82)}
+.contact h2{color:var(--on-blue);max-width:16ch}
+.contact .lede{color:rgba(255,255,255,.85);max-width:46ch}
 .contact .label{color:rgba(255,255,255,.75)}
-.card{background:#FFFFFF;color:#0A0A0A;border-radius:10px;padding:28px;display:grid;gap:18px;min-width:0}
-.card ol{display:grid;gap:10px;padding-left:20px;color:#444a5c}
-.card ol b{color:#0A0A0A}
+.assure{list-style:none;padding:0;margin-top:26px;display:grid;gap:10px;font-weight:600}
+.assure li{display:flex;gap:10px;align-items:center}
+.assure li::before{content:"";flex:none;width:18px;height:18px;border-radius:50%;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%231A3CFF' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.card{background:#FFFFFF;color:#0A0A0A;border-radius:10px;padding:28px;display:grid;gap:16px;min-width:0;box-shadow:10px 10px 0 #0A0A0A}
+.card .btn-primary{background:#1A3CFF;color:#fff;justify-content:center}
+.card .btn-primary:hover{background:#0F27C2}
+.btn-lg{padding:20px 24px;font-size:18px}
+.card-bonus{font-size:15px;color:#444a5c;text-align:center}
+.card-bonus b{color:#0F27C2}
+.or{display:flex;align-items:center;gap:12px;font:600 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:#596074;margin-top:6px}
+.or::before,.or::after{content:"";flex:1;height:1px;background:#DDE0EA}
 .copyrow{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap}
 .copyrow code{flex:1;min-width:0;font-family:var(--f-mono);font-size:15px;background:#F4F5F9;border:1px solid #DDE0EA;padding:12px 14px;border-radius:6px;overflow-wrap:anywhere;user-select:all}
 .copyrow button{font:700 14px/1 var(--f-body);padding:0 16px;border-radius:6px;border:1.5px solid #0A0A0A;background:#fff;color:#0A0A0A;cursor:pointer;min-height:44px}
-.card .btn-primary{background:#1A3CFF;color:#fff;justify-content:center}
-.card small{color:#596074;font-size:13px}
-@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}}
+.copyrow button:hover{background:#F4F5F9}
+.phone{font:600 15px/1 var(--f-mono);color:#0A0A0A;text-decoration:none;border:1px solid #DDE0EA;border-radius:6px;padding:14px;display:flex;align-items:center;gap:10px;min-height:44px}
+.phone::before{content:"Call";font:700 11px/1 var(--f-body);letter-spacing:.06em;text-transform:uppercase;color:#596074}
+.phone:hover{background:#F4F5F9}
+.card small{color:#596074;font-size:13px;text-align:center}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr;gap:36px}.card{box-shadow:6px 6px 0 #0A0A0A}}
+@media (max-width:420px){.card{padding:22px}.copyrow code{font-size:14px;overflow-wrap:normal;white-space:nowrap}}
+@media (max-width:360px){.btn-lg{font-size:16px;padding:18px 14px}.copyrow code{flex-basis:100%;text-align:center}.copyrow button{flex:1}}
 
 footer{padding-block:36px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -366,6 +353,14 @@ footer a{color:var(--muted)}
   .plan-more[open] > .plan-more-body{padding-top:16px}
 }
 @media (prefers-reduced-motion:reduce){.plan-more > summary::after{transition:none}}
+
+/* section 6: how it works */
+.steps .bonus{justify-self:start;font:700 12px/1.3 var(--f-body);color:var(--blue-ink);background:var(--blue-soft);border:1px dashed var(--blue);padding:6px 9px;border-radius:999px}
+.steps-cta{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px;padding:22px 26px;background:var(--bg);border:1.5px solid var(--line);border-radius:10px}
+.steps-cta p{max-width:52ch;font-size:17px}
+
+/* section 7: faq links */
+.faq details p a{color:var(--blue);font-weight:600}
 </style>
 </head>
 <body>
@@ -380,7 +375,7 @@ footer a{color:var(--muted)}
       <a href="#features">Features</a>
       <a href="#work">Work</a>
       <a href="#pricing">Pricing</a>
-      <a href="#process">Process</a>
+      <a href="#process">How it works</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call</a>
@@ -682,15 +677,20 @@ footer a{color:var(--muted)}
   <section class="leaks" id="process">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">Process</p>
-        <h2>From free mock-up to live site.</h2>
+        <p class="label">How it works</p>
+        <h2>From first call to live site in four steps.</h2>
+        <p class="lede">No jargon and no surprises. You always know what happens next and what it costs.</p>
       </div>
       <ol class="steps">
-        <li><span class="n">STEP 1</span><h3>Free mock-up</h3><p>Send us your website. We audit it and design a new homepage for you, free.</p><span class="when">Within 1 week</span></li>
-        <li><span class="n">STEP 2</span><h3>20-minute call</h3><p>We walk you through the mock-up, ask how bookings come in, and recommend a package.</p><span class="when">Same week</span></li>
-        <li><span class="n">STEP 3</span><h3>Build</h3><p>You send photos, prices and logins. We build, you review, we revise.</p><span class="when">3 weeks</span></li>
-        <li><span class="n">STEP 4</span><h3>Launch</h3><p>We go live, test every booking path, and show you how to edit your pages.</p><span class="when">Launch day</span></li>
+        <li><span class="n">STEP 1</span><h3>Book a call</h3><p>20 minutes to talk about your business and your current website. Free, with no obligation.</p><span class="bonus">+ Free homepage mock-up</span><span class="when">Day 1</span></li>
+        <li><span class="n">STEP 2</span><h3>Pick your package</h3><p>Choose Starter, Growth or Complete, pay the 50% deposit, and send us your photos, logo and prices.</p><span class="when">Same week</span></li>
+        <li><span class="n">STEP 3</span><h3>Design and approve</h3><p>We design your pages in your brand. You review them and we revise until you're happy.</p><span class="when">Week 1&ndash;2</span></li>
+        <li><span class="n">STEP 4</span><h3>Build and launch</h3><p>We build every page, test it on phones and go live. Then you pay the remaining 50%.</p><span class="when">2&ndash;4 weeks</span></li>
       </ol>
+      <div class="steps-cta">
+        <p><b>Bring us your website, and we'll bring a free mock-up of your new homepage to the call.</b></p>
+        <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book your call</a>
+      </div>
     </div>
   </section>
 
@@ -698,14 +698,16 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="sec-head" style="margin-bottom:0">
         <p class="label">FAQ</p>
-        <h2>Questions venue owners ask.</h2>
+        <h2>Questions business owners ask.</h2>
       </div>
       <div>
-        <details open><summary>Do I have to change my booking system?</summary><p>No. We design the site around the system you already use and link every Book button straight into it.</p></details>
-        <details><summary>Is the mock-up really free?</summary><p>Yes. If you don't want to go ahead, you keep the mock-up and owe us nothing.</p></details>
-        <details><summary>Can I update the site myself?</summary><p>Yes. Prices, session times, offers and photos are all editable without touching code. We show you how at launch.</p></details>
-        <details><summary>What do you need from me?</summary><p>Your current prices, your best photos, and access to your domain and booking system. We handle the rest.</p></details>
-        <details><summary>Who are you?</summary><p>KOLABS Agency is a small, new team that is part of KOLABS, a community of builders. We're early, which is why our first five clients get founding prices and direct access to the people building their site.</p></details>
+        <details open><summary>Do I have to change my booking system?</summary><p>No. We connect your new site to the booking system you already use. If you don't have one yet, we'll help you choose one that fits your business.</p></details>
+        <details><summary>Is the mock-up really free?</summary><p>Yes. Book a call and we'll bring a mock-up of your new homepage. If you decide not to go ahead, you keep it and owe us nothing.</p></details>
+        <details><summary>Can I update the site myself?</summary><p>Yes, with the Complete package. It includes easy editing and a training session. On Starter and Growth, the &pound;50-a-month care plan covers your changes, so you just tell us what to update.</p></details>
+        <details><summary>What's not included in the price?</summary><p>A few things are paid directly to other companies: your domain name, any booking software subscription, and card payment fees when customers pay online. We'll tell you upfront which ones apply to you.</p></details>
+        <details><summary>Can I start small and upgrade later?</summary><p>Yes. Start with Starter or Growth and add booking, events or editing later. You only pay the difference in the work involved.</p></details>
+        <details><summary>What do you need from me?</summary><p>Your logo, your best photos, your prices, and access to your domain and booking system. We handle everything else.</p></details>
+        <details><summary>Who are you?</summary><p>KOLABS Agency is part of something bigger: <b>KOLABS, the community</b>. KOLABS brings together people who build real projects and skills, across coding, business and personal growth. The agency is where that community builds websites for real businesses. We're new, which is why our first five clients get founding prices and direct access to the people building their site.</p></details>
       </div>
     </div>
   </section>
@@ -713,22 +715,26 @@ footer a{color:var(--muted)}
   <section class="contact" id="contact">
     <div class="wrap">
       <div>
-        <p class="label">Free homepage mock-up</p>
-        <h2 style="margin-top:14px">See your new homepage before you spend a penny.</h2>
-        <p class="lede" style="margin-top:18px">Send us your website address and we'll come back within a week with an audit and a redesigned homepage built for your venue.</p>
+        <p class="label">Get started</p>
+        <h2 style="margin-top:14px">Ready for a website that wins you customers?</h2>
+        <p class="lede" style="margin-top:18px">Book a free 20-minute call. Tell us about your business, and we'll show you what your website could do for it.</p>
+        <ul class="assure">
+          <li>Fixed price, agreed before we start</li>
+          <li>No obligation to go ahead</li>
+          <li>Live in 2&ndash;4 weeks</li>
+        </ul>
       </div>
       <div class="card">
-        <ol>
-          <li><b>Email us your website address</b> and the activity you most want to sell.</li>
-          <li><b>We send your mock-up</b> within a week.</li>
-          <li><b>Book a 20-minute call</b> if you like what you see.</li>
-        </ol>
+        <a class="btn btn-primary btn-lg" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a 20-minute call
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <p class="card-bonus"><b>+ Free homepage mock-up.</b> We'll bring one to the call.</p>
+        <p class="or"><span>or get in touch directly</span></p>
         <div class="copyrow">
           <code id="email">Kolabs2024@gmail.com</code>
           <button type="button" id="copy">Copy</button>
         </div>
-        <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a 20-minute call</a>
-        <small id="copy-status" aria-live="polite">Or call 07365 620971</small>
+        <a class="phone" href="tel:+447365620971">07365&nbsp;620971</a>
+        <small id="copy-status" aria-live="polite">We reply within one working day.</small>
       </div>
     </div>
   </section>
@@ -736,8 +742,8 @@ footer a{color:var(--muted)}
 
 <footer>
   <div class="wrap">
-    <span>© 2026 KOLABS Agency · Part of <a href="https://www.kolabs.store" target="_blank" rel="noopener">KOLABS</a></span>
-    <span>Websites for activity venues across the UK</span>
+    <span>© 2026 KOLABS Agency · Part of KOLABS, the community</span>
+    <span>Websites for small businesses across the UK</span>
   </div>
 </footer>
 
