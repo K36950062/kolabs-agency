@@ -1,6 +1,6 @@
 # KOLABS Agency website
 
-Booking-focused websites for UK activity venues. The live site is in `site/index.html`.
+Fixed-price websites for small businesses across the UK. Part of KOLABS, the community. The live site is in `site/index.html`.
 
 ## How changes go live
 
@@ -48,11 +48,12 @@ npx html-validate site/          # the same HTML check CI runs
 npx serve site                   # preview at http://localhost:3000
 ```
 
-## First updates to practise on
+## Checklist
 
-- [ ] Replace `[your agency email]` in the Contact section
-- [ ] Replace `[phone number]` in the Contact section
-- [ ] Point "Book a 20-minute call" at a real booking link (Calendly, Cal.com)
-- [ ] Share the two concept pages publicly so the "View the concept" links open for visitors
+- [x] Real email and phone number in the Contact section
+- [x] "Book a 20-minute call" goes to Calendly
+- [ ] Set the Calendly event length to 20 minutes, to match the site
+- [ ] Share the two concept pages privately with each business when pitching
 - [ ] Swap the placeholder logo for the final KOLABS mark
+- [ ] Google: page title and description, sitemap, Search Console
 - [ ] Add a custom domain (Settings > Pages > Custom domain)
