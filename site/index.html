@@ -222,6 +222,45 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 footer{padding-block:36px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--muted)}
+
+/* before / after visual */
+.ba{display:grid;grid-template-columns:1fr 1fr;align-items:end;max-width:600px;padding-top:28px;padding-left:12px}
+.ba-card{margin:0;min-width:0}
+.ba-card figcaption{font:600 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.ba-new figcaption{color:var(--blue);text-align:right}
+.ba-old{transform:rotate(-3deg);transform-origin:bottom right;margin-right:-14%;opacity:.92}
+.ba-new{position:relative;z-index:1;margin-left:-6%}
+.win{border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;background:#fff}
+.ba-new .win{box-shadow:10px 10px 0 var(--blue)}
+.win-bar{height:20px;display:flex;align-items:center;gap:5px;padding-inline:9px;border-bottom:1.5px solid var(--ink);background:var(--bg)}
+.win-bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+/* the "before" screen is drawn in a dated style on purpose, so its colours stay literal */
+.old-scr{background:#d9d9d9;font-family:"Times New Roman",Times,serif;color:#222;padding:8px;display:grid;gap:6px;aspect-ratio:4/5}
+.old-banner{background:#000080;color:#ffff00;font-weight:700;font-size:11px;text-align:center;padding:4px 2px;letter-spacing:.02em}
+.old-nav{font-size:9px;color:#0000ee;text-decoration:underline;text-align:center}
+.old-body{display:grid;grid-template-columns:1.2fr 1fr;gap:6px}
+.old-col{display:grid;gap:4px;align-content:start}
+.old-col span{height:5px;background:#9a9a9a}
+.old-col span:nth-child(3){width:70%}.old-col span:nth-child(5){width:50%}
+.old-img{border:2px inset #aaa;background:#bdbdbd;font-size:8px;color:#555;display:grid;place-items:center;min-height:54px}
+.old-note{font-size:9px;color:#b00000;font-style:italic}
+.old-foot{font-size:7.5px;color:#666;margin-top:auto}
+.new-scr{background:#fff;color:#0A0A0A;padding:10px;display:grid;gap:9px;aspect-ratio:4/5;align-content:start}
+.new-nav{display:flex;justify-content:space-between;align-items:center}
+.new-nav b{font:800 9px/1 var(--f-display);letter-spacing:.08em}
+.new-btn{justify-self:start;background:#1A3CFF;color:#fff;font:700 9px/1 var(--f-body);padding:6px 9px;border-radius:4px}
+.new-btn.sm{padding:4px 7px;font-size:8px}
+.new-hero{display:grid;gap:7px;background:#F4F5F9;border-radius:6px;padding:10px}
+.new-hero strong{font:800 14px/1.05 var(--f-display);letter-spacing:-.02em}
+.new-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
+.new-gallery i{aspect-ratio:1;border-radius:4px;background:#C9D1FF}
+.new-gallery i:nth-child(2){background:#8FA0FF}.new-gallery i:nth-child(3){background:#1A3CFF}
+.new-event{display:flex;gap:8px;align-items:center;border:1px solid #DDE0EA;border-radius:6px;padding:7px;font-size:9px;line-height:1.3}
+.new-event b{display:block;font-size:10px}
+.new-date{background:#0A0A0A;color:#fff;border-radius:4px;padding:4px 6px;text-align:center;font:600 8px/1.1 var(--f-mono)}
+.new-date b{font:800 12px/1 var(--f-display)}
+@media (max-width:920px){.ba{max-width:520px}}
+@media (max-width:520px){.ba-old{transform:rotate(-2deg)}}
 </style>
 </head>
 <body>
@@ -238,7 +277,7 @@ footer a{color:var(--muted)}
       <a href="#process">Process</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary" href="#contact">Free mock-up</a>
+    <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call</a>
   </div>
 </header>
 
@@ -246,52 +285,53 @@ footer a{color:var(--muted)}
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="label">Websites for UK activity venues</p>
-        <h1 style="margin-top:18px">Websites that <em>fill your sessions.</em></h1>
-        <p class="lede">We redesign websites for ski slopes, paintball sites, climbing walls and other activity venues, so parents, stag groups and team organisers can find a price and book on their phone in under a minute.</p>
+        <p class="label">Websites for small businesses</p>
+        <h1 style="margin-top:18px">Your website should be <em>winning you customers.</em></h1>
+        <p class="lede">We build professional websites for small businesses, with online booking, galleries and event pages built in. Fixed price. Live in 3 weeks.</p>
         <div class="ctas">
-          <a class="btn btn-primary" href="#contact">Get a free homepage mock-up
+          <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a 20-minute call
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a class="btn btn-ghost" href="#work">See our work</a>
         </div>
         <ul class="facts">
-          <li>Fixed prices</li>
+          <li>Fixed price</li>
           <li>Live in 3 weeks</li>
-          <li>Works with your booking system</li>
+          <li>You own the site</li>
         </ul>
       </div>
 
-      <div>
-        <div class="board" role="img" aria-label="Example booking grid for a Saturday, with most sessions booked">
-          <div class="board-top"><strong>Saturday sessions</strong><span class="mono" style="color:var(--muted)">Example venue</span></div>
-          <div class="board-grid">
-            <span></span><span class="h">Ski</span><span class="h">Tube</span><span class="h">Party</span><span class="h">Quad</span><span class="h">Laser</span>
-            <span class="t">09:00</span><i class="slot b"></i><i class="slot b"></i><i class="slot"></i><i class="slot b"></i><i class="slot b"></i>
-            <span class="t">10:30</span><i class="slot b"></i><i class="slot b"></i><i class="slot b"></i><i class="slot b"></i><i class="slot"></i>
-            <span class="t">12:00</span><i class="slot b"></i><i class="slot new"></i><i class="slot b"></i><i class="slot"></i><i class="slot b"></i>
-            <span class="t">13:30</span><i class="slot"></i><i class="slot b"></i><i class="slot b"></i><i class="slot b"></i><i class="slot new" style="animation-delay:1.8s"></i>
-            <span class="t">15:00</span><i class="slot b"></i><i class="slot b"></i><i class="slot new" style="animation-delay:2.6s"></i><i class="slot b"></i><i class="slot b"></i>
+      <div class="ba" role="img" aria-label="Before and after: a cluttered old website next to a clean modern website with booking, gallery and events">
+        <figure class="ba-card ba-old">
+          <figcaption>Before</figcaption>
+          <div class="win">
+            <div class="win-bar"><i></i><i></i><i></i></div>
+            <div class="old-scr">
+              <div class="old-banner">WELCOME TO OUR WEBSITE!!</div>
+              <div class="old-nav">Home | About | Prices | Photos | Contact | Links</div>
+              <div class="old-body">
+                <div class="old-col"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="old-img">photo.jpg</div>
+              </div>
+              <div class="old-note">To book please call us during office hours.</div>
+              <div class="old-foot">&copy; 2014 &middot; Best viewed in Internet Explorer</div>
+            </div>
           </div>
-          <div class="board-foot mono"><span class="legend"><span><i class="b"></i>Booked</span><span><i></i>Open</span></span><span>Booked online: <b>21 of 25</b></span></div>
-        </div>
+        </figure>
+        <figure class="ba-card ba-new">
+          <figcaption>After</figcaption>
+          <div class="win">
+            <div class="win-bar"><i></i><i></i><i></i></div>
+            <div class="new-scr">
+              <div class="new-nav"><b>YOUR BRAND</b><span class="new-btn sm">Book now</span></div>
+              <div class="new-hero"><strong>Book your next session in seconds.</strong><span class="new-btn">Check availability</span></div>
+              <div class="new-gallery"><i></i><i></i><i></i></div>
+              <div class="new-event"><span class="new-date">SAT<b>14</b></span><span><b>Open day</b>Free taster sessions</span></div>
+            </div>
+          </div>
+        </figure>
       </div>
     </div>
   </section>
-
-  <div class="who">
-    <div class="wrap">
-      <span class="label">Built for</span>
-      <ul>
-        <li>Ski &amp; snow slopes</li>
-        <li>Paintball &amp; laser tag</li>
-        <li>Quad &amp; off-road</li>
-        <li>Climbing walls</li>
-        <li>Trampoline parks</li>
-        <li>Escape rooms</li>
-        <li>Farm &amp; adventure parks</li>
-      </ul>
-    </div>
-  </div>
 
   <section id="work">
     <div class="wrap">
