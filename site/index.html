@@ -341,6 +341,31 @@ footer a{color:var(--muted)}
 .case ul.chips li::before{content:none}
 .work-foot{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
 .work-foot .note{margin-top:0;flex:1 1 360px}
+
+/* section 5: pricing */
+.plan{position:relative}
+.plan .pop{position:absolute;top:-12px;right:20px;background:var(--blue);color:var(--on-blue);font:700 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
+.plan-meta{font:500 12.5px/1.5 var(--f-mono);color:var(--muted)}
+.plan ul.feat-list li::before{content:"\2713";width:auto;height:auto;margin:0;background:none;color:var(--blue);font-weight:800}
+.plan ul.feat-list li small{color:var(--muted);font-size:13px}
+.plan ul.feat-list li.no{color:var(--muted);opacity:.55}
+.plan ul.feat-list li.no::before{content:"\2013";color:var(--muted)}
+.care{margin-top:20px;border:1.5px solid var(--line);border-radius:10px;padding:22px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px}
+.care h3{font-size:20px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:10px;margin:0}
+.care p{color:var(--muted);font-size:15px;margin-top:6px;max-width:60ch}
+.care .price b{font-size:36px}
+
+/* pricing: collapsible feature lists on phones */
+.plan-more-body{display:grid;gap:18px}
+.plan-more > summary{display:none}
+@media (max-width:900px){
+  .plan-more > summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;list-style:none;font-weight:700;font-size:15px;color:var(--blue);padding-block:12px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .plan-more > summary::-webkit-details-marker{display:none}
+  .plan-more > summary::after{content:"";width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-3px);transition:transform .2s}
+  .plan-more[open] > summary::after{transform:rotate(225deg) translateY(-3px)}
+  .plan-more[open] > .plan-more-body{padding-top:16px}
+}
+@media (prefers-reduced-motion:reduce){.plan-more > summary::after{transition:none}}
 </style>
 </head>
 <body>
@@ -368,7 +393,7 @@ footer a{color:var(--muted)}
       <div>
         <p class="label">Websites for small businesses</p>
         <h1 style="margin-top:18px">Your website should be <em>winning you customers.</em></h1>
-        <p class="lede">We build professional websites for small businesses, with online booking, galleries and event pages built in. Fixed price. Live in 3 weeks.</p>
+        <p class="lede">We build professional websites for small businesses, with online booking, galleries and event pages built in. Fixed price. Live in 2 to 4 weeks.</p>
         <div class="ctas">
           <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a 20-minute call
             <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -376,7 +401,7 @@ footer a{color:var(--muted)}
         </div>
         <ul class="facts">
           <li>Fixed price</li>
-          <li>Live in 3 weeks</li>
+          <li>Live in 2–4 weeks</li>
           <li>You own the site</li>
         </ul>
       </div>
@@ -570,53 +595,86 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="sec-head">
         <p class="label">Pricing</p>
-        <h2>Fixed prices. No surprises.</h2>
-        <p class="lede">We're a new agency taking on our first five venues. Founding clients pay less and get our full attention. In return, we ask for a testimonial and permission to show the work.</p>
+        <h2>Pick the features you need.</h2>
+        <p class="lede">Three fixed-price packages, each adding to the last. We're a new agency, so our first five clients get founding prices. In return, we ask for a testimonial and permission to show your site.</p>
       </div>
       <div class="plans">
         <div class="plan">
-          <div><h3>Launch</h3><p class="for">For venues that need a modern site fast</p></div>
+          <div><h3>Starter</h3><p class="for">A modern, professional site that looks good on phones</p></div>
           <span class="badge">Founding price</span>
-          <div class="price"><b>£1,350</b><s>£1,950</s></div>
-          <ul>
-            <li>Up to 6 pages, designed for phones first</li>
-            <li>Book buttons wired to your booking system</li>
-            <li>Google Business Profile tidy-up</li>
-            <li>Basic local SEO</li>
-            <li>Live in 3 weeks</li>
-          </ul>
-          <a class="btn btn-ghost" href="#contact">Start with a mock-up</a>
+          <div class="price"><b>£650</b><s>£1,150</s></div>
+          <details class="plan-more" open>
+            <summary>See what's included</summary>
+            <div class="plan-more-body">
+              <p class="plan-meta">Up to 5 pages · Live in 2 weeks · 1 month aftercare</p>
+              <ul class="feat-list">
+                <li>Built for phones</li>
+                <li>Clear structure</li>
+                <li>Matched to your brand</li>
+                <li>Photo gallery</li>
+                <li><span>Found on Google <small>(basics)</small></span></li>
+                <li class="no">Online booking</li>
+                <li class="no">Event pages</li>
+                <li class="no">Edit it yourself</li>
+              </ul>
+            </div>
+          </details>
+          <a class="btn btn-ghost" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call about Starter</a>
         </div>
         <div class="plan main">
-          <div><h3>Growth</h3><p class="for">For venues that sell parties, groups and gift vouchers</p></div>
+          <span class="pop">Most popular</span>
+          <div><h3>Growth</h3><p class="for">For businesses that take bookings and run events</p></div>
           <span class="badge">Founding price</span>
-          <div class="price"><b>£2,450</b><s>£3,450</s></div>
-          <ul>
-            <li>Everything in Launch, up to 12 pages</li>
-            <li>Copy rewritten to sell your sessions</li>
-            <li>Party and group enquiry pages</li>
-            <li>Gift voucher page</li>
-            <li>Analytics that track bookings</li>
-          </ul>
-          <a class="btn btn-primary" href="#contact">Start with a mock-up</a>
+          <div class="price"><b>£1,150</b><s>£1,950</s></div>
+          <details class="plan-more" open>
+            <summary>See what's included</summary>
+            <div class="plan-more-body">
+              <p class="plan-meta">Up to 10 pages · Live in 3 weeks · 1 month aftercare</p>
+              <ul class="feat-list">
+                <li>Built for phones</li>
+                <li>Clear structure</li>
+                <li>Matched to your brand</li>
+                <li>Photo gallery</li>
+                <li><span>Found on Google <small>(basics)</small></span></li>
+                <li>Online booking</li>
+                <li>Event pages</li>
+                <li class="no">Edit it yourself</li>
+              </ul>
+            </div>
+          </details>
+          <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call about Growth</a>
         </div>
         <div class="plan">
-          <div><h3>Care plan</h3><p class="for">Optional, after launch</p></div>
-          <span class="badge">Founding price, first 12 months</span>
-          <div class="price"><b>£75</b><small>/ month</small><s>£95</s></div>
-          <ul>
-            <li>Hosting, updates and backups</li>
-            <li>Up to 1 hour of edits a month</li>
-            <li>Monthly bookings report</li>
-            <li>Cancel any time</li>
-          </ul>
-          <a class="btn btn-ghost" href="#contact">Ask about care</a>
+          <div><h3>Complete</h3><p class="for">For owners who want to run their own site and get found locally</p></div>
+          <span class="badge">Founding price</span>
+          <div class="price"><b>£1,950</b><s>£3,150</s></div>
+          <details class="plan-more" open>
+            <summary>See what's included</summary>
+            <div class="plan-more-body">
+              <p class="plan-meta">Up to 15 pages · Live in 4 weeks · 3 months aftercare</p>
+              <ul class="feat-list">
+                <li>Built for phones</li>
+                <li>Clear structure</li>
+                <li>Matched to your brand</li>
+                <li>Photo gallery</li>
+                <li><span>Found on Google <small>(full local setup)</small></span></li>
+                <li>Online booking</li>
+                <li>Event pages</li>
+                <li>Edit it yourself</li>
+              </ul>
+            </div>
+          </details>
+          <a class="btn btn-ghost" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a call about Complete</a>
         </div>
       </div>
+      <div class="care">
+        <div><h3>Care plan <span class="badge">Optional</span></h3><p>Hosting, security updates, backups and up to 30 minutes of changes every month. Cancel any time.</p></div>
+        <div class="price"><b>£50</b><small>/ month</small><s>£75</s></div>
+      </div>
       <div class="terms">
-        <p><b>50% to start, 50% at launch</b>No monthly contract unless you choose the care plan.</p>
+        <p><b>50% to start, 50% at launch</b>You pay the rest only when your site is live.</p>
         <p><b>You own the site</b>Your domain, your content and your logins stay in your name.</p>
-        <p><b>Keep your booking system</b>Bookwhen, FareHarbor, Rezdy, Checkfront or your own: we connect to it.</p>
+        <p><b>Mix and match</b>Need one feature from a bigger package? Ask on your call and we'll quote it.</p>
       </div>
     </div>
   </section>
@@ -701,6 +759,15 @@ footer a{color:var(--muted)}
       }else{fallback()}
     }catch(e){fallback()}
   });
+})();
+</script>
+<script>
+/* pricing: feature lists start closed on phones and tablets, open on desktop */
+(function(){
+  var mq=window.matchMedia('(max-width:900px)');
+  function sync(){document.querySelectorAll('.plan-more').forEach(function(d){d.open=!mq.matches;});}
+  sync();
+  if(mq.addEventListener){mq.addEventListener('change',sync);}
 })();
 </script>
 </body>
