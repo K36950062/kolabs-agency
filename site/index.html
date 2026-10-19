@@ -261,6 +261,36 @@ footer a{color:var(--muted)}
 .new-date b{font:800 12px/1 var(--f-display)}
 @media (max-width:920px){.ba{max-width:520px}}
 @media (max-width:520px){.ba-old{transform:rotate(-2deg)}}
+
+/* section 2: the problem (illustrated cards) */
+.probs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.prob{background:var(--bg);border:1.5px solid var(--ink);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0}
+.prob-vis{height:136px;background:var(--paper);border-bottom:1.5px solid var(--ink);display:grid;place-items:center;padding:12px}
+.prob-txt{padding:18px 20px 22px;display:grid;gap:8px}
+.prob h3{margin:0;font-size:19px;font-weight:800;letter-spacing:-.02em;line-height:1.2}
+.prob p{color:var(--muted);font-size:15px;line-height:1.5}
+.probs-next{margin-top:28px;font-weight:700;font-size:19px}
+.probs-next::after{content:" \2193";color:var(--blue)}
+/* the little pictures show "bad website" details, so their colours stay literal */
+.pv-call{position:relative;font:600 12px/1 var(--f-body);color:#667085;background:#fff;border:1.5px dashed #98A2B3;border-radius:6px;padding:10px 12px;white-space:nowrap}
+.pv-call::after{content:"";position:absolute;left:-6px;right:-6px;top:50%;height:2px;background:#D93025;transform:rotate(-8deg)}
+.pv-phone{width:58px;height:100px;border:2px solid var(--ink);border-radius:10px;background:#fff;overflow:hidden;padding:9px 5px}
+.pv-phone i{display:block;height:5px;background:#B8BCC6;margin-bottom:5px;width:150%}
+.pv-phone i:nth-child(2){width:120%}
+.pv-phone i:nth-child(4){width:175%;background:#D93025}
+.pv-note{background:#FFF4B8;color:#0A0A0A;padding:12px 14px;transform:rotate(-4deg);font:800 13px/1.25 var(--f-body);text-align:center;box-shadow:2px 3px 0 rgba(0,0,0,.14)}
+.pv-note small{display:block;margin-top:4px;color:#D93025;font-weight:600;font-size:11px}
+.pv-vs{display:flex;gap:12px;align-items:end}
+.pv-site{position:relative;width:62px;height:76px;border:1.5px solid var(--ink);border-radius:5px;background:#fff;padding:6px;display:grid;gap:4px;align-content:start}
+.pv-old{background:#DADADA}
+.pv-old i{height:4px;background:#999}
+.pv-new i{height:9px;border-radius:2px;background:#1A3CFF}
+.pv-new i + i{height:20px;background:#E8ECFF}
+.pv-badge{position:absolute;top:-9px;right:-9px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;color:#fff;font:800 11px/1 var(--f-body)}
+.pv-no{background:#D93025}
+.pv-yes{background:#1E8E3E}
+@media (max-width:1000px){.probs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.probs{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -377,19 +407,46 @@ footer a{color:var(--muted)}
   <section class="leaks" id="fix">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">What we fix</p>
-        <h2>Where activity venue websites lose bookings.</h2>
-        <p class="lede">We found these problems again and again when we audited venue sites.</p>
+        <p class="label">The problem</p>
+        <h2>Is your website costing you customers?</h2>
+        <p class="lede">Most small business websites lose customers in the same four ways. If any of these sound like yours, people are leaving before they ever contact you.</p>
       </div>
-      <div class="leak-table">
-        <div class="leak-head mono" aria-hidden="true"><span style="color:var(--muted)">Area</span><span style="color:var(--muted)">The problem</span><span style="color:var(--muted)">What we do</span></div>
-        <div class="leak"><span class="k">Booking</span><span class="p">"Call us to book"</span><span class="f"><b>Online booking on every page,</b> so evening and weekend browsers can book while they're on the site.</span></div>
-        <div class="leak"><span class="k">Prices</span><span class="p">Prices buried or out of date</span><span class="f"><b>One clear price list</b> with a Book button on each row.</span></div>
-        <div class="leak"><span class="k">Mobile</span><span class="p">Pop-ups and tables that break on phones</span><span class="f"><b>Built for phones first,</b> with a Book button that stays on screen.</span></div>
-        <div class="leak"><span class="k">Parties</span><span class="p">Party and group details hard to find</span><span class="f"><b>Dedicated pages</b> for parties, stag and hen, corporate and schools, with per-head pricing.</span></div>
-        <div class="leak"><span class="k">Content</span><span class="p">Last season's offers still showing</span><span class="f"><b>Pages you can edit yourself</b> in minutes, with no developer needed.</span></div>
-        <div class="leak"><span class="k">Search</span><span class="p">Duplicate pages and typos in titles</span><span class="f"><b>Clean page structure and local SEO</b> so you show up for "paintball near Derby".</span></div>
+      <div class="probs">
+        <article class="prob">
+          <div class="prob-vis" aria-hidden="true"><span class="pv-call">Call 01234 567890 to book</span></div>
+          <div class="prob-txt">
+            <h3>Customers can't book online.</h3>
+            <p>If the only way to book is to call or email, people browsing in the evening book with someone else.</p>
+          </div>
+        </article>
+        <article class="prob">
+          <div class="prob-vis" aria-hidden="true"><div class="pv-phone"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="prob-txt">
+            <h3>It looks bad on a phone.</h3>
+            <p>Most people find you on their phone. Tiny text and broken menus send them straight back to Google.</p>
+          </div>
+        </article>
+        <article class="prob">
+          <div class="prob-vis" aria-hidden="true"><div class="pv-note">SUMMER OFFER!<small>ends 31 Aug 2021</small></div></div>
+          <div class="prob-txt">
+            <h3>Old prices, photos and events.</h3>
+            <p>Out-of-date information makes customers wonder whether you're still open.</p>
+          </div>
+        </article>
+        <article class="prob">
+          <div class="prob-vis" aria-hidden="true">
+            <div class="pv-vs">
+              <div class="pv-site pv-old"><i></i><i></i><i></i><span class="pv-badge pv-no">&#10005;</span></div>
+              <div class="pv-site pv-new"><i></i><i></i><span class="pv-badge pv-yes">&#10003;</span></div>
+            </div>
+          </div>
+          <div class="prob-txt">
+            <h3>Competitors look more professional.</h3>
+            <p>Customers compare a few websites before choosing. A dated one loses before you've said a word.</p>
+          </div>
+        </article>
       </div>
+      <p class="probs-next">Every one of these is fixable, and it doesn't take months.</p>
     </div>
   </section>
 
