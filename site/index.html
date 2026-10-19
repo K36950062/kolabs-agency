@@ -80,18 +80,21 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 @media (max-width:480px){.brand span{display:none}.nav .btn{padding:11px 13px;font-size:14px}}
 
 /* hero */
-.hero{padding-block:72px 88px}
+.hero{padding-block:72px 88px;background:#1A3CFF;color:#FFFFFF}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.hero h1{font-family:var(--f-display);font-weight:900;font-size:clamp(44px,7vw,92px);line-height:.94;letter-spacing:-.045em;text-wrap:balance}
-.hero h1 em{font-style:normal;color:var(--blue)}
-.hero .lede{margin-top:24px}
+.hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(44px,7vw,92px);line-height:.94;letter-spacing:-.04em;text-wrap:balance}
+.hero .lede{margin-top:24px;color:rgba(255,255,255,.88)}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:28px;padding:0;list-style:none;color:var(--muted)}
+.hero .btn-primary{background:#FFFFFF;color:#0A0A0A}
+.hero .btn-primary:hover{background:#E8ECFF}
+.hero .btn-ghost{border-color:#FFFFFF;color:#FFFFFF}
+.hero .btn-ghost:hover{background:rgba(255,255,255,.1)}
+.facts{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:28px;padding:0;list-style:none;color:rgba(255,255,255,.88)}
 .facts li{display:flex;align-items:center;gap:8px}
-.facts li::before{content:"";width:8px;height:8px;background:var(--blue);border-radius:2px}
+.facts li::before{content:"";width:8px;height:8px;background:#FFFFFF;border-radius:2px}
 .hero > .wrap > div{min-width:0}
 
-@media (max-width:920px){.hero .wrap{grid-template-columns:1fr}}
+@media (max-width:920px){.hero .wrap{grid-template-columns:1fr}.show{max-width:560px}}
 
 /* work */
 .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
@@ -170,7 +173,7 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 @media (max-width:820px){.faq .wrap{grid-template-columns:1fr;gap:28px}}
 
 /* contact */
-.contact{background:var(--blue);color:var(--on-blue)}
+.contact{background:#1A3CFF;color:#FFFFFF}
 .contact .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
 .contact h2{color:var(--on-blue);max-width:16ch}
 .contact .lede{color:rgba(255,255,255,.85);max-width:46ch}
@@ -202,44 +205,40 @@ footer{padding-block:36px;border-top:1px solid var(--line);color:var(--muted);fo
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--muted)}
 
-/* before / after visual */
-.ba{display:grid;grid-template-columns:1fr 1fr;align-items:end;max-width:600px;padding-top:28px;padding-left:12px}
-.ba-card{margin:0;min-width:0}
-.ba-card figcaption{font:600 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.ba-new figcaption{color:var(--blue);text-align:right}
-.ba-old{transform:rotate(-3deg);transform-origin:bottom right;margin-right:-14%;opacity:.92}
-.ba-new{position:relative;z-index:1;margin-left:-6%}
-.win{border:1.5px solid var(--ink);border-radius:8px;overflow:hidden;background:#fff}
-.ba-new .win{box-shadow:10px 10px 0 var(--blue)}
-.win-bar{height:20px;display:flex;align-items:center;gap:5px;padding-inline:9px;border-bottom:1.5px solid var(--ink);background:var(--bg)}
-.win-bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
-/* the "before" screen is drawn in a dated style on purpose, so its colours stay literal */
-.old-scr{background:#d9d9d9;font-family:"Times New Roman",Times,serif;color:#222;padding:8px;display:grid;gap:6px;aspect-ratio:4/5}
-.old-banner{background:#000080;color:#ffff00;font-weight:700;font-size:11px;text-align:center;padding:4px 2px;letter-spacing:.02em}
-.old-nav{font-size:9px;color:#0000ee;text-decoration:underline;text-align:center}
-.old-body{display:grid;grid-template-columns:1.2fr 1fr;gap:6px}
-.old-col{display:grid;gap:4px;align-content:start}
-.old-col span{height:5px;background:#9a9a9a}
-.old-col span:nth-child(3){width:70%}.old-col span:nth-child(5){width:50%}
-.old-img{border:2px inset #aaa;background:#bdbdbd;font-size:8px;color:#555;display:grid;place-items:center;min-height:54px}
-.old-note{font-size:9px;color:#b00000;font-style:italic}
-.old-foot{font-size:7.5px;color:#666;margin-top:auto}
-.new-scr{background:#fff;color:#0A0A0A;padding:10px;display:grid;gap:9px;aspect-ratio:4/5;align-content:start}
-.new-nav{display:flex;justify-content:space-between;align-items:center}
-.new-nav b{font:800 9px/1 var(--f-display);letter-spacing:.08em}
-.new-btn{justify-self:start;background:#1A3CFF;color:#fff;font:700 9px/1 var(--f-body);padding:6px 9px;border-radius:4px}
-.new-btn.sm{padding:4px 7px;font-size:8px}
-.new-hero{display:grid;gap:7px;background:#F4F5F9;border-radius:6px;padding:10px}
-.new-hero strong{font:800 14px/1.05 var(--f-display);letter-spacing:-.02em}
-.new-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
-.new-gallery i{aspect-ratio:1;border-radius:4px;background:#C9D1FF}
-.new-gallery i:nth-child(2){background:#8FA0FF}.new-gallery i:nth-child(3){background:#1A3CFF}
-.new-event{display:flex;gap:8px;align-items:center;border:1px solid #DDE0EA;border-radius:6px;padding:7px;font-size:9px;line-height:1.3}
-.new-event b{display:block;font-size:10px}
-.new-date{background:#0A0A0A;color:#fff;border-radius:4px;padding:4px 6px;text-align:center;font:600 8px/1.1 var(--f-mono)}
-.new-date b{font:800 12px/1 var(--f-display)}
-@media (max-width:920px){.ba{max-width:520px}}
-@media (max-width:520px){.ba-old{transform:rotate(-2deg)}}
+/* hero picture: laptop + phone (drawn colours stay literal so it looks the same in dark mode) */
+.show{position:relative;padding:28px 18px 40px 34px}
+.lap{border:1.5px solid #0A0A0A;border-radius:10px;overflow:hidden;background:#fff;box-shadow:12px 12px 0 #0A0A0A}
+.lap-bar{height:26px;display:flex;align-items:center;gap:5px;padding-inline:10px;border-bottom:1.5px solid #0A0A0A;background:#F4F5F9}
+.lap-bar i{width:8px;height:8px;border-radius:50%;background:#DDE0EA}
+.lap-bar span{margin-left:10px;flex:1;max-width:200px;font:500 10px/1 var(--f-mono);color:#596074;background:#fff;border:1px solid #DDE0EA;border-radius:99px;padding:4px 10px;white-space:nowrap;overflow:hidden}
+.lap-scr{padding:14px 14px 18px;display:grid;gap:12px;color:#0A0A0A;background:#fff}
+.s-nav{display:flex;align-items:center;gap:14px;font:600 10px/1 var(--f-body);color:#596074}
+.s-nav b{font:800 11px/1 var(--f-display);letter-spacing:.08em;color:#0A0A0A;margin-right:auto}
+.s-nav em,.s-hero em{font-style:normal;background:#1A3CFF;color:#fff;font:700 10px/1 var(--f-body);padding:7px 10px;border-radius:5px}
+.s-hero{display:grid;gap:12px;justify-items:start;border-radius:8px;padding:22px 18px;color:#fff;background:linear-gradient(120deg,#0B0F24 0%,#1A3CFF 70%,#8FA0FF 100%)}
+.s-hero strong{font:800 clamp(17px,1.9vw,24px)/1.05 var(--f-display);letter-spacing:-.025em;max-width:13ch}
+.s-hero em{background:#fff;color:#1A3CFF}
+.s-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.s-row i{aspect-ratio:4/3;border-radius:6px;background:#C9D1FF}
+.s-row i:nth-child(2){background:#8FA0FF}.s-row i:nth-child(3){background:#E8ECFF}
+.s-ev{display:flex;gap:10px;align-items:center;border:1px solid #DDE0EA;border-radius:8px;padding:9px;font-size:11px;line-height:1.35;color:#596074;max-width:62%}
+.s-ev b{display:block;color:#0A0A0A;font-size:12px}
+.s-date{background:#0A0A0A;color:#fff;border-radius:5px;padding:5px 7px;text-align:center;font:600 9px/1.1 var(--f-mono)}
+.s-date b{color:#fff;font:800 14px/1 var(--f-display)}
+.ph{position:absolute;right:0;bottom:0;width:34%;max-width:170px;border:1.5px solid #0A0A0A;border-radius:22px;background:#fff;padding:8px;box-shadow:8px 8px 0 #0A0A0A}
+.ph-notch{width:36%;height:6px;border-radius:9px;background:#0A0A0A;margin:2px auto 8px}
+.ph-scr{display:grid;gap:8px;color:#0A0A0A;padding:2px 4px 6px}
+.ph-t{font:800 13px/1 var(--f-display)}
+.ph-day{font:600 9px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:#596074}
+.ph-slots{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.ph-slots i{font:600 10px/1 var(--f-mono);font-style:normal;text-align:center;padding:7px 0;border:1px solid #DDE0EA;border-radius:5px}
+.ph-slots i.on{background:#1A3CFF;border-color:#1A3CFF;color:#fff}
+.ph-slots i.x{color:#B4B9C8;text-decoration:line-through}
+.ph-go{font-style:normal;text-align:center;background:#0A0A0A;color:#fff;font:700 10px/1 var(--f-body);padding:9px 0;border-radius:6px}
+.chip{position:absolute;display:flex;align-items:center;gap:7px;font:700 12px/1 var(--f-body);background:#fff;color:#0A0A0A;border:1.5px solid #0A0A0A;border-radius:99px;padding:8px 12px;white-space:nowrap}
+.chip::before{content:"";width:14px;height:14px;border-radius:50%;background:#1A3CFF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/10px no-repeat}
+.c1{top:4px;right:22%}.c2{top:60%;left:0}.c3{bottom:8px;left:16%}
+@media (max-width:520px){.show{padding:22px 6px 34px 10px}.ph{width:40%}.chip{font-size:11px;padding:7px 10px}.c2{display:none}.c1{right:auto;left:30%}.c3{left:2%}.s-nav span{display:none}.s-ev{max-width:58%}}
 
 /* section 2: the problem (illustrated cards) */
 .probs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
@@ -386,8 +385,7 @@ footer a{color:var(--muted)}
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="label">Websites for small businesses</p>
-        <h1 style="margin-top:18px">Your website should be <em>winning you customers.</em></h1>
+        <h1>Your website should be winning you customers.</h1>
         <p class="lede">We build professional websites for small businesses, with online booking, galleries and event pages built in. Fixed price. Live in 2 to 4 weeks.</p>
         <div class="ctas">
           <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a 20-minute call
@@ -401,35 +399,28 @@ footer a{color:var(--muted)}
         </ul>
       </div>
 
-      <div class="ba" role="img" aria-label="Before and after: a cluttered old website next to a clean modern website with booking, gallery and events">
-        <figure class="ba-card ba-old">
-          <figcaption>Before</figcaption>
-          <div class="win">
-            <div class="win-bar"><i></i><i></i><i></i></div>
-            <div class="old-scr">
-              <div class="old-banner">WELCOME TO OUR WEBSITE!!</div>
-              <div class="old-nav">Home | About | Prices | Photos | Contact | Links</div>
-              <div class="old-body">
-                <div class="old-col"><span></span><span></span><span></span><span></span><span></span></div>
-                <div class="old-img">photo.jpg</div>
-              </div>
-              <div class="old-note">To book please call us during office hours.</div>
-              <div class="old-foot">&copy; 2014 &middot; Best viewed in Internet Explorer</div>
-            </div>
+      <div class="show" role="img" aria-label="Example of a modern small business website on a laptop and a phone, with online booking, a gallery and an events list">
+        <div class="lap">
+          <div class="lap-bar"><i></i><i></i><i></i><span>yourbusiness.co.uk</span></div>
+          <div class="lap-scr">
+            <div class="s-nav"><b>YOUR BRAND</b><span>Classes</span><span>Gallery</span><span>Events</span><em>Book now</em></div>
+            <div class="s-hero"><strong>Book your next session in seconds.</strong><em>Check availability</em></div>
+            <div class="s-row"><i></i><i></i><i></i></div>
+            <div class="s-ev"><span class="s-date">SAT<b>14</b></span><span><b>Open day</b>Free taster sessions, 10am&ndash;4pm</span></div>
           </div>
-        </figure>
-        <figure class="ba-card ba-new">
-          <figcaption>After</figcaption>
-          <div class="win">
-            <div class="win-bar"><i></i><i></i><i></i></div>
-            <div class="new-scr">
-              <div class="new-nav"><b>YOUR BRAND</b><span class="new-btn sm">Book now</span></div>
-              <div class="new-hero"><strong>Book your next session in seconds.</strong><span class="new-btn">Check availability</span></div>
-              <div class="new-gallery"><i></i><i></i><i></i></div>
-              <div class="new-event"><span class="new-date">SAT<b>14</b></span><span><b>Open day</b>Free taster sessions</span></div>
-            </div>
+        </div>
+        <div class="ph">
+          <div class="ph-notch"></div>
+          <div class="ph-scr">
+            <b class="ph-t">Pick a time</b>
+            <span class="ph-day">Saturday 14</span>
+            <div class="ph-slots"><i>9:00</i><i class="on">10:30</i><i>12:00</i><i class="x">13:30</i><i>15:00</i><i>16:30</i></div>
+            <em class="ph-go">Confirm booking</em>
           </div>
-        </figure>
+        </div>
+        <span class="chip c1">Online booking</span>
+        <span class="chip c2">Built for phones</span>
+        <span class="chip c3">Found on Google</span>
       </div>
     </div>
   </section>
