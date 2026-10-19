@@ -334,6 +334,13 @@ footer a{color:var(--muted)}
   .b-tall{grid-row:span 1}
   .b-phone{margin-top:12px}
 }
+
+/* section 4: examples */
+.case ul.chips{display:flex;flex-wrap:wrap;gap:6px}
+.case ul.chips li{display:inline-block;font:600 12px/1 var(--f-mono);letter-spacing:.04em;color:var(--blue-ink);background:var(--blue-soft);padding:6px 9px;border-radius:999px}
+.case ul.chips li::before{content:none}
+.work-foot{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.work-foot .note{margin-top:0;flex:1 1 360px}
 </style>
 </head>
 <body>
@@ -404,47 +411,6 @@ footer a{color:var(--muted)}
           </div>
         </figure>
       </div>
-    </div>
-  </section>
-
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="label">Work</p>
-        <h2>Two venues, redesigned around the booking.</h2>
-        <p class="lede">Each concept started with an audit of the venue's live site, then a new homepage built to fix what was costing them bookings.</p>
-      </div>
-      <div class="work-grid">
-        <article class="case">
-          <div class="shot hx" aria-hidden="true">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <div class="scr"><div class="mini-h">Yorkshire's freestyle <span>mountain.</span></div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
-            <span class="tag">Concept</span>
-          </div>
-          <div><h3>Halifax Ski &amp; Snowboard Centre</h3><p class="where">Dry ski slope, snowtubing and parties · West Yorkshire</p></div>
-          <ul>
-            <li>Three separate mini-sites merged into one, so families see slope, snowtubing and parties together</li>
-            <li>A Book button on every price, replacing pop-ups that broke on phones</li>
-            <li>Party packages laid out with clear per-child pricing</li>
-          </ul>
-          <a class="more" href="https://claude.ai/artifact/GkKJBF1YtwoetLimUt6d61" target="_blank" rel="noopener">View the concept →</a>
-        </article>
-        <article class="case">
-          <div class="shot wp" aria-hidden="true">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <div class="scr"><div class="mini-h">Get <span>muddy.</span><br>Get wild.</div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
-            <span class="tag">Concept</span>
-          </div>
-          <div><h3>Wild Park Derbyshire</h3><p class="where">Paintball, quads, laser combat and ranges · Derbyshire</p></div>
-          <ul>
-            <li>An activity, date and group-size picker at the top of the page</li>
-            <li>All eight activities with age and price on the card, including one the old menu missed</li>
-            <li>Separate routes for stag and hen, kids' parties, corporate and schools</li>
-          </ul>
-          <a class="more" href="https://claude.ai/artifact/LUARMjTaev6J6atEA661dk" target="_blank" rel="noopener">View the concept →</a>
-        </article>
-      </div>
-      <p class="note">These are speculative concepts we made to show what we'd change. They aren't client projects, and neither venue is affiliated with KOLABS.</p>
     </div>
   </section>
 
@@ -548,6 +514,54 @@ footer a{color:var(--muted)}
           <p>We'll show you which features fit your business.</p>
           <a class="b-cta-btn" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Book a 20-minute call &rarr;</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Examples</p>
+        <h2>See what your new website could look like.</h2>
+        <p class="lede">Two example redesigns for real types of business, each built around the features above.</p>
+      </div>
+      <div class="work-grid">
+        <article class="case">
+          <div class="shot hx" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="scr"><div class="mini-h">Learn to ski.<br><span>Book in seconds.</span></div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
+            <span class="tag">Example</span>
+          </div>
+          <div><h3>Ski &amp; snowboard centre</h3><p class="where">Lessons, open sessions and kids' parties</p></div>
+          <ul class="chips">
+            <li>Online booking</li><li>Built for phones</li><li>Event pages</li>
+          </ul>
+          <ul>
+            <li>Lessons, open sessions and parties together in one place</li>
+            <li>A Book button next to every price</li>
+            <li>Party packages laid out with clear per-child pricing</li>
+          </ul>
+        </article>
+        <article class="case">
+          <div class="shot wp" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="scr"><div class="mini-h">Get <span>muddy.</span><br>Get wild.</div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
+            <span class="tag">Example</span>
+          </div>
+          <div><h3>Outdoor activity park</h3><p class="where">Paintball, quad biking, archery and group days</p></div>
+          <ul class="chips">
+            <li>Online booking</li><li>Clear structure</li><li>Photo gallery</li>
+          </ul>
+          <ul>
+            <li>An activity, date and group-size picker at the top of the page</li>
+            <li>Every activity shown with its age limit and price</li>
+            <li>Separate pages for parties, team days and school groups</li>
+          </ul>
+        </article>
+      </div>
+      <div class="work-foot">
+        <p class="note">These are example redesigns we created to show our approach. Yours is built around your business, your brand and your customers.</p>
+        <a class="btn btn-primary" href="https://calendly.com/kolabs2024/30min" target="_blank" rel="noopener">Want one like this? Book a call</a>
       </div>
     </div>
   </section>
