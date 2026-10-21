@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Graft Personal Training, Leeds (demo website)</title>
+<meta name="description" content="Demo website for a made-up personal trainer, designed by KOLABS Agency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../demo.css">
+<style>
+:root{
+  --concrete:#E2E3DF; --concrete-2:#D3D5D0; --black:#000; --white:#fff; --signal:#F2DF00; --muted:#4F5355; --line:#C4C6C1;
+  --big:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --sans:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --demo-accent:#000; --demo-ink:#000; --demo-font:var(--sans); --demo-radius:0; --demo-focus:#000;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--concrete);color:var(--black);font:400 18px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,figure,fieldset{margin:0}
+:focus-visible{outline:3px solid var(--black);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+section{padding-block:96px}
+h2{font:900 clamp(44px,7vw,88px)/.88 var(--big);text-transform:uppercase;letter-spacing:.005em}
+.lead{max-width:50ch;color:var(--muted);margin-top:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;font:700 17px/1 var(--sans);text-decoration:none;border:2px solid var(--black);cursor:pointer}
+.btn-signal{background:var(--signal);color:var(--black)}
+.btn-signal:hover{background:var(--black);color:var(--signal)}
+.btn-line{background:transparent;color:var(--black)}
+.btn-line:hover{background:var(--black);color:var(--white)}
+
+/* header */
+.top{background:var(--concrete);border-bottom:2px solid var(--black);position:sticky;top:0;z-index:20}
+.top .wrap{display:flex;align-items:center;gap:28px;min-height:70px}
+.logo{font:900 34px/1 var(--big);text-decoration:none;letter-spacing:.02em;margin-right:auto}
+.nav{display:flex;gap:26px;font-weight:600}
+.nav a{text-decoration:none}
+.nav a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px}
+.top .btn{min-height:44px;padding:0 18px;font-size:15px}
+.menu-btn{display:none;background:var(--black);color:var(--white);border:0;font:700 15px/1 var(--sans);padding:0 16px;min-height:44px;cursor:pointer}
+@media (max-width:860px){
+  .menu-btn{display:block}
+  .top .btn{display:none}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--concrete);border-bottom:2px solid var(--black);padding:6px 16px 14px}
+  .nav.is-open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+}
+
+/* hero: pick your goal, the page answers */
+.hero{padding-block:56px 72px}
+.ask{font:700 20px/1.3 var(--sans)}
+.goals{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.goals button{min-height:52px;padding:0 22px;border:2px solid var(--black);background:transparent;color:var(--black);font:900 24px/1 var(--big);text-transform:uppercase;letter-spacing:.02em;cursor:pointer}
+.goals button:hover{background:var(--white)}
+.goals button[aria-pressed="true"]{background:var(--black);color:var(--signal)}
+.answer{margin-top:40px}
+.hero h1{font:900 clamp(52px,7.6vw,110px)/.86 var(--big);text-transform:uppercase;letter-spacing:.003em;min-height:1.72em}
+.hero-row{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:center;margin-top:32px}
+.hero-row p{font-size:20px;color:#2A2D2F;max-width:38ch}
+.hero-row .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.hero-photo{position:relative;aspect-ratio:16/9;border:2px solid var(--black);background:#9a9c98;overflow:hidden}
+.hero-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+.tape{position:absolute;right:-10px;top:18px;background:var(--signal);border:2px solid var(--black);font:900 24px/1 var(--big);text-transform:uppercase;padding:10px 22px 10px 16px;transform:rotate(3deg);white-space:nowrap}
+.answer.swap h1,.answer.swap .hero-row p{animation:swap .35s ease-out}
+@keyframes swap{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.answer.swap h1,.answer.swap .hero-row p{animation:none}}
+@media (max-width:860px){
+  .hero-row{grid-template-columns:1fr;gap:28px}
+  .hero-photo{order:-1}
+  .goals button{font-size:20px;padding:0 14px;flex:1 1 auto}
+  .hero h1{min-height:2.52em}
+}
+
+/* steps */
+.steps{background:var(--black);color:var(--white)}
+.steps .lead{color:#B9BCB8}
+.step-list{list-style:none;padding:0;margin-top:52px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:2px solid var(--white)}
+.step-list li{padding:28px 28px 8px 0}
+.step-list li+li{padding-left:28px;border-left:1px solid #3a3a3a}
+.step-n{font:900 96px/.8 var(--big);color:var(--signal);display:block}
+.step-list h3{font:700 26px/1.1 var(--big);text-transform:uppercase;margin-top:18px;letter-spacing:.02em}
+.step-list p{color:#C9CCC8;margin-top:10px}
+@media (max-width:860px){.step-list{grid-template-columns:1fr}.step-list li,.step-list li+li{padding:24px 0;border-left:0;border-bottom:1px solid #3a3a3a}}
+
+/* prices */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:48px;border:2px solid var(--black);background:var(--white)}
+.plan{padding:32px 28px 30px;display:flex;flex-direction:column;gap:14px}
+.plan+.plan{border-left:2px solid var(--black)}
+.plan h3{font:900 34px/1 var(--big);text-transform:uppercase}
+.plan .price{font:900 64px/1 var(--big)}
+.plan .price small{font:600 17px/1 var(--sans);color:var(--muted);margin-left:4px}
+.plan ul{padding-left:20px;color:#2A2D2F;display:grid;gap:6px}
+.plan .btn{margin-top:auto}
+.plan.pick{background:var(--signal)}
+.plan.pick .price small{color:#3a3700}
+.plan-tag{align-self:flex-start;background:var(--black);color:var(--signal);font:700 14px/1 var(--sans);padding:7px 10px}
+@media (max-width:860px){.plans{grid-template-columns:1fr}.plan+.plan{border-left:0;border-top:2px solid var(--black)}}
+
+/* gallery */
+.floor{padding-block:0 96px}
+.gal{list-style:none;padding:0;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:240px 240px;gap:8px}
+.gal li:first-child{grid-row:span 2}
+.gal a{display:block;height:100%;background:#9a9c98;overflow:hidden}
+.gal img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.gal a:hover img,.gal a:focus-visible img{filter:none}
+.gal li:nth-child(4){grid-column:span 2}
+@media (max-width:700px){.gal{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gal li:first-child{grid-column:1/-1;grid-row:auto}.gal li:nth-child(4){grid-column:auto}.gal a{aspect-ratio:1}.gal li:first-child a{aspect-ratio:4/3}}
+
+/* coach */
+.coach{background:var(--white);border-block:2px solid var(--black)}
+.coach .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:center}
+.coach img{width:100%;aspect-ratio:4/5;object-fit:cover;border:2px solid var(--black);background:#9a9c98}
+.coach p{margin-top:16px;max-width:56ch}
+.creds{list-style:none;padding:0;margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+.creds li{border:2px solid var(--black);padding:6px 12px;font-weight:600;font-size:15px}
+@media (max-width:860px){.coach .wrap{grid-template-columns:1fr;gap:28px}.coach img{aspect-ratio:1}}
+
+/* booking */
+.book .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:start}
+.bk{background:var(--white);border:2px solid var(--black);padding:28px;display:grid;gap:24px}
+.bk fieldset{border:0;padding:0;min-width:0}
+.bk legend{font:900 24px/1 var(--big);text-transform:uppercase;margin-bottom:12px;padding:0;letter-spacing:.02em}
+.seg{position:relative;display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--black)}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{min-height:48px;display:grid;place-items:center;font-weight:600;cursor:pointer;text-align:center;padding:6px}
+.seg label+input+label{border-left:2px solid var(--black)}
+.seg input:checked+label{background:var(--black);color:var(--signal)}
+.seg input:focus-visible+label{outline:3px solid var(--signal);outline-offset:-5px}
+.bk-days{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
+.bk-days button{flex:none;width:60px;min-height:68px;display:grid;place-items:center;align-content:center;gap:4px;border:2px solid var(--black);background:var(--white);color:var(--black);font:600 13px/1 var(--sans);cursor:pointer}
+.bk-days button b{font:900 28px/1 var(--big)}
+.bk-days button[aria-pressed="true"]{background:var(--black);color:var(--signal)}
+.bk-times{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:6px}
+.bk-times button{min-height:46px;border:2px solid var(--black);background:var(--white);color:var(--black);font:700 16px/1 var(--sans);cursor:pointer}
+.bk-times button[aria-pressed="true"]{background:var(--signal)}
+.bk-times button.is-taken{border-color:var(--line);color:#9DA09B;text-decoration:line-through;cursor:not-allowed}
+.bk-empty{color:var(--muted);font-size:16px}
+.bk-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;border-top:2px solid var(--black);padding-top:20px}
+.bk-sum{font-weight:700}
+.bk-go{background:var(--black);color:var(--signal)}
+.bk-go:disabled{background:var(--concrete-2);color:#7d807b;border-color:var(--concrete-2);cursor:not-allowed}
+.book h2{font-size:clamp(34px,5.2vw,70px)}
+@media (max-width:860px){.book .wrap{grid-template-columns:1fr;gap:28px}.bk{padding:20px}}
+
+footer{background:var(--black);color:#C9CCC8;padding:36px 0;font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:var(--white)}
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <span>Demo website by KOLABS Agency. Graft Personal Training is a made-up business.</span>
+  <a href="../../#work">Back to KOLABS Agency</a>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">GRAFT</a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#prices">Prices</a>
+      <a href="#coach">Your coach</a>
+      <a href="#book">Book</a>
+    </nav>
+    <a class="btn btn-signal" href="#book">Book a free consultation</a>
+    <button class="menu-btn" type="button" data-menu-toggle aria-controls="nav" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-label="Welcome">
+    <div class="wrap">
+      <p class="ask" id="ask">What do you want from training?</p>
+      <div class="goals" role="group" aria-labelledby="ask">
+        <button type="button" aria-pressed="true" data-goal="strong">Get stronger</button>
+        <button type="button" aria-pressed="false" data-goal="lose">Lose weight</button>
+        <button type="button" aria-pressed="false" data-goal="pain">Move without pain</button>
+      </div>
+      <div class="answer" id="answer" aria-live="polite">
+        <h1 id="goal-h">Lift more than you thought you could.</h1>
+        <div class="hero-row">
+          <div>
+            <p id="goal-p">Progressive strength plans, coached one-to-one in Leeds, with every lift logged so you can see it working.</p>
+            <div class="acts">
+              <a class="btn btn-signal" href="#book">Book a free consultation</a>
+              <a class="btn btn-line" href="#prices">See prices</a>
+            </div>
+          </div>
+          <div class="hero-photo">
+            <img id="goal-img" src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&amp;fit=crop&amp;w=1200&amp;h=675&amp;q=70" alt="A man holding a barbell" width="1200" height="675">
+            <span class="tape">First session free</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="lead">No contracts and no shouting. Three steps from first chat to training on your own with confidence.</p>
+      <ol class="step-list">
+        <li><span class="step-n" aria-hidden="true">1</span><h3>Free consultation</h3><p>Thirty minutes to talk about your goals, any injuries and your week, then a simple movement check.</p></li>
+        <li><span class="step-n" aria-hidden="true">2</span><h3>Your plan</h3><p>A written plan built around the time you really have, whether that's two sessions a week or four.</p></li>
+        <li><span class="step-n" aria-hidden="true">3</span><h3>Train and track</h3><p>We train together, log every lift in your app and review progress every four weeks.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <h2>Prices</h2>
+      <p class="lead">Pay as you go, or save with a pack. Every option starts with the free consultation.</p>
+      <div class="plans">
+        <article class="plan">
+          <h3>Single session</h3>
+          <p class="price">£35<small>per hour</small></p>
+          <ul><li>One-to-one in the gym</li><li>Your plan in the app</li><li>Pay on the day</li></ul>
+          <a class="btn btn-line" href="#book">Book a consultation</a>
+        </article>
+        <article class="plan pick">
+          <span class="plan-tag">Most people start here</span>
+          <h3>Ten-session pack</h3>
+          <p class="price">£300<small>£30 a session</small></p>
+          <ul><li>Everything in a single session</li><li>Monthly progress review</li><li>Use within four months</li></ul>
+          <a class="btn btn-line" href="#book">Book a consultation</a>
+        </article>
+        <article class="plan">
+          <h3>Online coaching</h3>
+          <p class="price">£60<small>per month</small></p>
+          <ul><li>Plan updated every week</li><li>Video form checks</li><li>Message me any day</li></ul>
+          <a class="btn btn-line" href="#book">Book a consultation</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="floor" aria-label="Photos from the gym floor">
+    <div class="wrap">
+      <ul class="gal" data-gallery>
+        <li><a href="https://images.unsplash.com/photo-1648542036561-e1d66a5ae2b1?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Partner session, Saturday morning"><img src="https://images.unsplash.com/photo-1648542036561-e1d66a5ae2b1?auto=format&amp;fit=crop&amp;w=900&amp;h=760&amp;q=65" alt="A man and a woman exercising together" width="900" height="760" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1758875569334-27579a49ed0b?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Push-up progressions, week three"><img src="https://images.unsplash.com/photo-1758875569334-27579a49ed0b?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=65" alt="A man doing push-ups while his trainer spots him" width="600" height="600" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Conditioning finisher"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=65" alt="A man working out in the gym" width="600" height="600" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1758875569399-99a7d80ace43?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Four-week review, planning the next block"><img src="https://images.unsplash.com/photo-1758875569399-99a7d80ace43?auto=format&amp;fit=crop&amp;w=900&amp;h=500&amp;q=65" alt="A trainer and client discussing a workout plan" width="900" height="500" loading="lazy"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="coach" id="coach">
+    <div class="wrap">
+      <img src="https://images.unsplash.com/photo-1758875568932-0eefd3e60090?auto=format&amp;fit=crop&amp;w=900&amp;h=1100&amp;q=70" alt="Sam, the coach, standing with arms crossed in the gym" width="900" height="1100" loading="lazy">
+      <div>
+        <h2>Hi, I'm Sam</h2>
+        <p>I spent ten years in an office before I lifted anything heavier than a laptop. I started Graft for people like I was then: busy, a bit unsure, and put off by gyms that feel like a show.</p>
+        <p>Most of my clients are in their thirties to sixties. Some want to deadlift their bodyweight, some just want their back to stop hurting. Both are good reasons.</p>
+        <ul class="creds">
+          <li>Level 3 personal trainer</li>
+          <li>Strength and conditioning coach</li>
+          <li>First aid trained</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <div>
+        <h2>Book your free consultation</h2>
+        <p class="lead">Thirty minutes, no cost and no pressure to sign up. Choose the gym or a video call.</p>
+      </div>
+      <div class="bk" data-book data-days="10" data-closed="0" data-title="Consultation booked"
+           data-times="07:00,08:00,12:00,13:00,17:30,18:30,19:30">
+        <fieldset>
+          <legend>Where</legend>
+          <div class="seg">
+            <input type="radio" name="where" id="w-gym" checked data-label="Free consultation at the gym"><label for="w-gym">At the gym</label>
+            <input type="radio" name="where" id="w-video" data-label="Free consultation by video call"><label for="w-video">Video call</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Day</legend>
+          <div class="bk-days" data-days-list></div>
+        </fieldset>
+        <fieldset>
+          <legend>Time</legend>
+          <div class="bk-times" data-times-list></div>
+        </fieldset>
+        <div class="bk-foot">
+          <p class="bk-sum" data-summary aria-live="polite"></p>
+          <button class="btn bk-go" type="button" data-confirm>Book consultation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Graft Personal Training, Mill Yard, Leeds. <a href="tel:+441134960721">0113&nbsp;496&nbsp;0721</a></span>
+    <span>A made-up business. Website designed by <a href="../../">KOLABS Agency</a></span>
+  </div>
+</footer>
+<script src="../demo.js"></script>
+<script>
+/* hero: the headline, text and photo answer the goal you pick */
+(function(){
+  var u=function(id){return 'https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w=1200&h=675&q=70';};
+  var goals={
+    strong:{h:'Lift more than you thought you could.',p:'Progressive strength plans, coached one-to-one in Leeds, with every lift logged so you can see it working.',img:u('1517838277536-f5f99be501cd'),alt:'A man holding a barbell'},
+    lose:{h:'Lose the weight. Keep the muscle.',p:'Strength training two or three times a week, plus a simple food plan you can actually live with.',img:u('1534258936925-c58bed479fcb'),alt:'Two people exercising in the gym'},
+    pain:{h:'Move without the twinge.',p:'Gentle, coached strength work for stiff backs, knees and shoulders. We go at your pace and build from there.',img:u('1571019614242-c5c5dee9f50b'),alt:'A trainer kneeling beside a client during a stretch'}
+  };
+  Object.keys(goals).forEach(function(k){var i=new Image();i.src=goals[k].img;});
+  var btns=document.querySelectorAll('[data-goal]'),ans=document.getElementById('answer');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    var g=goals[b.getAttribute('data-goal')];
+    btns.forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    document.getElementById('goal-h').textContent=g.h;
+    document.getElementById('goal-p').textContent=g.p;
+    var img=document.getElementById('goal-img');img.src=g.img;img.alt=g.alt;
+    ans.classList.remove('swap');void ans.offsetWidth;ans.classList.add('swap');
+  });});
+})();
+</script>
+</body>
+</html>

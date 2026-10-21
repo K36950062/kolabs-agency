@@ -96,37 +96,29 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 
 @media (max-width:920px){.hero .wrap{grid-template-columns:1fr}.show{max-width:560px}}
 
-/* work */
-.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.case{display:grid;gap:20px;min-width:0}
-.shot{aspect-ratio:16/10;max-width:100%;border-radius:8px;overflow:hidden;border:1.5px solid var(--ink);position:relative;display:flex;flex-direction:column}
-.shot .bar{height:22px;display:flex;align-items:center;gap:5px;padding-inline:10px;border-bottom:1.5px solid var(--ink);background:var(--bg)}
-.shot .bar i{width:7px;height:7px;border-radius:50%;background:var(--line)}
-.shot .scr{flex:1;padding:7% 7% 0;display:flex;flex-direction:column;gap:8px}
-/* client palettes stay literal: they are those venues' colours, shown as screenshots */
-.shot.hx .scr{background:linear-gradient(180deg,#0b1424,#10284f)}
-.shot.wp .scr{background:linear-gradient(180deg,#0e1813,#1c3226)}
-.mini-h{font-weight:900;line-height:.95;letter-spacing:-.03em;font-size:clamp(20px,3vw,34px);color:#fff}
-.hx .mini-h span{color:#3fd0ff}
-.wp .mini-h{font-family:"Arial Narrow",var(--f-display);text-transform:uppercase;letter-spacing:0}
-.wp .mini-h span{color:#ff6a1a}
-.mini-p{height:7px;width:60%;border-radius:4px;background:rgba(255,255,255,.25)}
-.mini-btns{display:flex;gap:6px;margin-top:4px}
-.mini-btns b{height:18px;width:80px;border-radius:99px;background:#1f6bff}
-.wp .mini-btns b{background:#ff6a1a;border-radius:3px}
-.mini-btns b+b{background:transparent;border:1.5px solid rgba(255,255,255,.5)}
-.mini-cards{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding-top:12px}
-.mini-cards i{height:44px;border-radius:5px 5px 0 0}
-.hx .mini-cards i:nth-child(1){background:#3fd0ff}.hx .mini-cards i:nth-child(2){background:#ffc24b}.hx .mini-cards i:nth-child(3){background:#b98cff}.hx .mini-cards i:nth-child(4){background:#7ae3a7}
-.wp .mini-cards i:nth-child(1){background:#6b8f4e}.wp .mini-cards i:nth-child(2){background:#c27b3a}.wp .mini-cards i:nth-child(3){background:#3e6bd1}.wp .mini-cards i:nth-child(4){background:#ff6a1a}
-.tag{position:absolute;top:32px;right:10px;font:600 10px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#0A0A0A;padding:5px 7px;border-radius:3px}
-.case h3{font-size:24px;font-weight:800;letter-spacing:-.02em}
-.case .where{color:var(--muted);margin-top:2px}
-.case ul{display:grid;gap:8px;padding:0;list-style:none}
-.case li{display:grid;grid-template-columns:18px 1fr;gap:8px}
-.case li::before{content:"→";color:var(--blue);font-weight:700}
-.note{margin-top:32px;color:var(--muted);font-size:15px;max-width:70ch}
-@media (max-width:820px){.work-grid{grid-template-columns:1fr}}
+/* work: gallery of demo sites */
+.demos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.dc a{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--ink);background:var(--bg);border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;transition:transform .15s,box-shadow .15s}
+.dc a:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--blue)}
+.dc a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.dc-img{display:block;aspect-ratio:16/11;background:var(--c1)}
+.dc-img img{width:100%;height:100%;object-fit:cover}
+/* each card uses that demo's own brand colours */
+.dc-band{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;background:var(--c1);color:#fff}
+.dc-band h3{font-size:17px;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.dc-band i{flex:none;width:14px;height:14px;border-radius:50%;background:var(--c2)}
+.dc-body{display:grid;gap:4px;padding:14px 14px 16px}
+.dc-type{font-weight:700}
+.dc-try{color:var(--muted);font-size:15px;line-height:1.4}
+.note{color:var(--muted);font-size:15px;max-width:70ch}
+.work-foot{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.work-foot .note{flex:1 1 360px}
+@media (prefers-reduced-motion:reduce){.dc a{transition:none}.dc a:hover{transform:none}}
+@media (max-width:1000px){.demos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  .demos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-16px;padding:4px 16px 14px;scroll-padding-inline:16px}
+  .dc{flex:0 0 78%;scroll-snap-align:start}
+}
 
 /* leaks */
 .leaks{background:var(--paper);border-block:1px solid var(--line)}
@@ -320,13 +312,6 @@ footer a{color:var(--muted)}
   .b-tall{grid-row:span 1}
   .b-phone{margin-top:12px}
 }
-
-/* section 4: examples */
-.case ul.chips{display:flex;flex-wrap:wrap;gap:6px}
-.case ul.chips li{display:inline-block;font:600 12px/1 var(--f-mono);letter-spacing:.04em;color:var(--blue-ink);background:var(--blue-soft);padding:6px 9px;border-radius:999px}
-.case ul.chips li::before{content:none}
-.work-foot{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
-.work-foot .note{margin-top:0;flex:1 1 360px}
 
 /* section 5: pricing */
 .plan{position:relative}
@@ -532,46 +517,70 @@ footer a{color:var(--muted)}
   <section id="work">
     <div class="wrap">
       <div class="sec-head">
-        <p class="label">Examples</p>
-        <h2>See what your new website could look like.</h2>
-        <p class="lede">Two example redesigns for real types of business, each built around the features above.</p>
+        <p class="label">Our work</p>
+        <h2>Websites you can click around.</h2>
+        <p class="lede">Eight demo sites for made-up local businesses, each designed and built by us in its own style. Open one and try the booking, the menus and the galleries. They all work.</p>
       </div>
-      <div class="work-grid">
-        <article class="case">
-          <div class="shot hx" aria-hidden="true">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <div class="scr"><div class="mini-h">Learn to ski.<br><span>Book in seconds.</span></div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
-            <span class="tag">Example</span>
-          </div>
-          <div><h3>Ski &amp; snowboard centre</h3><p class="where">Lessons, open sessions and kids' parties</p></div>
-          <ul class="chips">
-            <li>Online booking</li><li>Built for phones</li><li>Event pages</li>
-          </ul>
-          <ul>
-            <li>Lessons, open sessions and parties together in one place</li>
-            <li>A Book button next to every price</li>
-            <li>Party packages laid out with clear per-child pricing</li>
-          </ul>
-        </article>
-        <article class="case">
-          <div class="shot wp" aria-hidden="true">
-            <div class="bar"><i></i><i></i><i></i></div>
-            <div class="scr"><div class="mini-h">Get <span>muddy.</span><br>Get wild.</div><div class="mini-p"></div><div class="mini-btns"><b></b><b></b></div><div class="mini-cards"><i></i><i></i><i></i><i></i></div></div>
-            <span class="tag">Example</span>
-          </div>
-          <div><h3>Outdoor activity park</h3><p class="where">Paintball, quad biking, archery and group days</p></div>
-          <ul class="chips">
-            <li>Online booking</li><li>Clear structure</li><li>Photo gallery</li>
-          </ul>
-          <ul>
-            <li>An activity, date and group-size picker at the top of the page</li>
-            <li>Every activity shown with its age limit and price</li>
-            <li>Separate pages for parties, team days and school groups</li>
-          </ul>
-        </article>
-      </div>
+      <ul class="demos">
+        <li class="dc" style="--c1:#123D33;--c2:#C9A227">
+          <a href="work/northside-barbers/">
+            <div class="dc-img"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&amp;fit=crop&amp;w=640&amp;h=440&amp;q=60" alt="" width="640" height="440" loading="lazy"></div>
+            <div class="dc-band"><h3>Northside Barbers</h3><i aria-hidden="true"></i></div>
+            <div class="dc-body"><span class="dc-type">Barber shop</span><span class="dc-try">Pick a barber and book a chair</span></div>
+          </a>
+        </li>
+        <li class="dc" style="--c1:#000000;--c2:#F2DF00">
+          <a href="work/graft-pt/">
+            <div class="dc-img"><img src="https://images.unsplash.com/photo-1758875569256-f37c438cac65?auto=format&amp;fit=crop&amp;w=640&amp;h=440&amp;q=60" alt="" width="640" height="440" loading="lazy"></div>
+            <div class="dc-band"><h3>Graft Personal Training</h3><i aria-hidden="true"></i></div>
+            <div class="dc-body"><span class="dc-type">Personal trainer</span><span class="dc-try">Pick a goal and watch the page change</span></div>
+          </a>
+        </li>
+        <li class="dc" style="--c1:#2E5A3A;--c2:#F5D565">
+          <a href="work/little-fern-cafe/">
+            <div class="dc-img"><img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&amp;fit=crop&amp;w=640&amp;h=440&amp;q=60" alt="" width="640" height="440" loading="lazy"></div>
+            <div class="dc-band"><h3>Little Fern Café</h3><i aria-hidden="true"></i></div>
+            <div class="dc-body"><span class="dc-type">Café and bakery</span><span class="dc-try">Browse the menu and book a table</span></div>
+          </a>
+        </li>
+        <li class="dc" style="--c1:#26282C;--c2:#FF4F8B">
+          <a href="work/crux-climbing/">
+            <div class="dc-img"><img src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&amp;fit=crop&amp;w=640&amp;h=440&amp;q=60" alt="" width="640" height="440" loading="lazy"></div>
+            <div class="dc-band"><h3>Crux Climbing</h3><i aria-hidden="true"></i></div>
+            <div class="dc-body"><span class="dc-type">Climbing centre</span><span class="dc-try">Book a taster session</span></div>
+          </a>
+        </li>
+        <li class="dc" style="--c1:#1C2B5A;--c2:#F49AC1">
+          <a href="work/muddy-paws/">
+            <div class="dc-img"><img src="https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&amp;fit=crop&amp;w=640&amp;h=440&amp;q=60" alt="" width="640" height="440" loading="lazy"></div>
+            <div class="dc-band"><h3>Muddy Paws Grooming</h3><i aria-hidden="true"></i></div>
+            <div class="dc-body"><span class="dc-type">Dog groomer</span><span class="dc-try">Pick your dog&#39;s size to see prices</span></div>
+          </a>
+        </li>
+        <li class="dc" style="--c1:#3D1F35;--c2:#B08D57">
+          <a href="work/lumen-studio/">
+            <div class="dc-img"><img src="https://images.unsplash.com/photo-1619607146034-5a05296c8f9a?auto=format&amp;fit=crop&amp;w=640&amp;h=440&amp;q=60" alt="" width="640" height="440" loading="lazy"></div>
+            <div class="dc-band"><h3>Lumen Nail and Brow</h3><i aria-hidden="true"></i></div>
+            <div class="dc-body"><span class="dc-type">Beauty studio</span><span class="dc-try">Pick a shade and the page recolours</span></div>
+          </a>
+        </li>
+        <li class="dc" style="--c1:#4E5B3C;--c2:#DEDCD5">
+          <a href="work/haverleigh-barn/">
+            <div class="dc-img"><img src="https://images.unsplash.com/photo-1721176503586-a2f7417333fe?auto=format&amp;fit=crop&amp;w=640&amp;h=440&amp;q=60" alt="" width="640" height="440" loading="lazy"></div>
+            <div class="dc-band"><h3>Haverleigh Barn</h3><i aria-hidden="true"></i></div>
+            <div class="dc-body"><span class="dc-type">Wedding venue</span><span class="dc-try">Check if your date is free</span></div>
+          </a>
+        </li>
+        <li class="dc" style="--c1:#0B4F4A;--c2:#FFC400">
+          <a href="work/calder-plumbing/">
+            <div class="dc-img"><img src="https://images.unsplash.com/photo-1749532125405-70950966b0e5?auto=format&amp;fit=crop&amp;w=640&amp;h=440&amp;q=60" alt="" width="640" height="440" loading="lazy"></div>
+            <div class="dc-band"><h3>Calder Plumbing</h3><i aria-hidden="true"></i></div>
+            <div class="dc-body"><span class="dc-type">Plumber</span><span class="dc-try">See typical prices for your problem</span></div>
+          </a>
+        </li>
+      </ul>
       <div class="work-foot">
-        <p class="note">These are example redesigns we created to show our approach. Yours is built around your business, your brand and your customers.</p>
+        <p class="note">The businesses are made up so we could show a range of styles and features. Your site is designed around your business, your brand and your customers.</p>
         <a class="btn btn-primary" href="https://calendly.com/kolabs2024/20min" target="_blank" rel="noopener">Want one like this? Book a call</a>
       </div>
     </div>

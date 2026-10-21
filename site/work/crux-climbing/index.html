@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Crux Climbing, Sheffield (demo website)</title>
+<meta name="description" content="Demo website for a made-up bouldering centre, designed by KOLABS Agency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../demo.css">
+<style>
+:root{
+  --wall:#26282C; --wall-2:#1C1D20; --chalk:#F4F4F1; --white:#fff; --muted:#5E6167; --line:#DCDCD6;
+  --pink:#FF4F8B; --teal:#12B5B0; --yellow:#FFC93C; --blue:#3E7BFA; --purple:#8B5CF6; --black:#111214;
+  --font:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --demo-accent:#FF4F8B; --demo-on-accent:#111214; --demo-ink:#111214; --demo-font:var(--font); --demo-radius:6px; --demo-focus:#FF4F8B;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--chalk);color:var(--black);font:400 17px/1.6 var(--font);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,dl,dd,figure,fieldset{margin:0}
+:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+section{padding-block:88px}
+h2{font-weight:900;font-stretch:125%;font-size:clamp(32px,4.6vw,54px);line-height:1;letter-spacing:-.02em}
+.lead{max-width:52ch;color:var(--muted);margin-top:14px;font-size:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;font:800 16px/1 var(--font);font-stretch:110%;text-decoration:none;border-radius:6px;border:2px solid transparent;cursor:pointer}
+.btn-pink{background:var(--pink);color:var(--black)}
+.btn-pink:hover{background:#FF7AA6}
+.btn-dark{background:var(--black);color:var(--white)}
+.btn-dark:hover{background:#2c2e33}
+
+/* header */
+.top{background:var(--wall-2);color:var(--white);position:sticky;top:0;z-index:20}
+.top .wrap{display:flex;align-items:center;gap:26px;min-height:66px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-stretch:125%;font-size:22px;text-decoration:none;margin-right:auto;letter-spacing:-.01em}
+.logo i{display:inline-grid;grid-template-columns:repeat(2,9px);gap:3px}
+.logo i b{width:9px;height:9px;border-radius:50%}
+.nav{display:flex;gap:24px;font-weight:600}
+.nav a{text-decoration:none;color:rgba(255,255,255,.82)}
+.nav a:hover{color:#fff;text-decoration:underline;text-underline-offset:5px}
+.top .btn{min-height:42px;padding:0 16px;font-size:15px}
+.menu-btn{display:none;background:none;border:2px solid rgba(255,255,255,.4);color:#fff;border-radius:6px;font:700 15px/1 var(--font);padding:0 14px;min-height:44px;cursor:pointer}
+@media (max-width:860px){
+  .menu-btn{display:block}
+  .top .btn{display:none}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--wall-2);padding:4px 16px 14px}
+  .nav.is-open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+}
+
+/* hero: cinematic photo strip with a card that overlaps into the page */
+.hero{padding:0;background:var(--wall)}
+.strip{position:relative;height:min(62vh,560px);background:#3a3c41;overflow:hidden}
+.strip img{width:100%;height:100%;object-fit:cover;object-position:center 35%}
+.hero-card{position:relative;margin-top:-170px;background:var(--white);border-radius:10px;padding:44px 48px 40px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:40px;align-items:end;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.hero-card h1{font-weight:900;font-stretch:125%;font-size:clamp(40px,5.8vw,78px);line-height:.95;letter-spacing:-.035em}
+.hero-card p{margin-top:18px;font-size:19px;color:#3d4046;max-width:44ch}
+.hero-card .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.today{border-left:2px solid var(--line);padding-left:28px;display:grid;gap:12px}
+.today h2{font-size:15px;font-stretch:100%;font-weight:800;letter-spacing:0}
+.today ul{list-style:none;padding:0;display:grid;gap:10px}
+.today li{display:flex;align-items:center;gap:10px;font-weight:600}
+.dot{width:14px;height:14px;border-radius:50%;flex:none;box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.today small{color:var(--muted);font-weight:500}
+.hero-pad{height:88px;background:var(--chalk)}
+.hero .wrap{position:relative}
+.hero-under{background:var(--chalk)}
+@media (max-width:860px){
+  .strip{height:300px}
+  .hero-card{grid-template-columns:1fr;margin-top:-80px;padding:30px 22px 26px;gap:26px}
+  .today{border-left:0;border-top:2px solid var(--line);padding:22px 0 0}
+  .hero-pad{height:56px}
+}
+
+/* grades */
+.grades{list-style:none;padding:0;margin-top:40px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.grades li{background:var(--white);border-radius:10px;padding:20px 18px;border:1.5px solid var(--line)}
+.hold{display:block;width:44px;height:44px;border-radius:46% 54% 50% 50% / 58% 42% 58% 42%;box-shadow:inset 0 -6px 0 rgba(0,0,0,.18);margin-bottom:14px}
+.grades h3{font-weight:800;font-stretch:115%;font-size:20px}
+.grades p{color:var(--muted);font-size:15px;margin-top:4px}
+@media (max-width:860px){.grades{grid-template-columns:1fr 1fr}.grades li:last-child{grid-column:1/-1}}
+
+/* sessions */
+.sessions{background:var(--wall);color:var(--white)}
+.sessions .lead{color:#B9BBC0}
+.tablist{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px}
+.tablist button{min-height:46px;padding:0 18px;border-radius:6px;border:2px solid #4a4c52;background:transparent;color:var(--white);font:700 16px/1 var(--font);cursor:pointer}
+.tablist button[aria-selected="true"]{background:var(--white);color:var(--black);border-color:var(--white)}
+.panel{margin-top:26px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;background:var(--wall-2);border-radius:10px;padding:34px}
+.panel h3{font-weight:900;font-stretch:120%;font-size:30px;line-height:1.05}
+.panel p{color:#C9CBD0;margin-top:12px}
+.panel dl{display:grid;gap:10px;align-content:start}
+.panel dl div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #3a3c41;padding-bottom:10px}
+.panel dt{color:#B9BBC0}
+.panel dd{font-weight:800}
+@media (max-width:860px){.panel{grid-template-columns:1fr;padding:24px;gap:24px}}
+
+/* booking */
+.book .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px;align-items:start}
+.bk{background:var(--white);border-radius:10px;border:1.5px solid var(--line);padding:28px;display:grid;gap:22px}
+.bk fieldset{border:0;padding:0;min-width:0}
+.bk legend{font-weight:800;font-stretch:115%;margin-bottom:12px;padding:0}
+.bk select{width:100%;min-height:48px;font:inherit;padding:0 12px;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--black)}
+.bk-days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.bk-days button{flex:none;width:60px;min-height:66px;display:grid;place-items:center;align-content:center;gap:2px;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--black);font:600 13px/1 var(--font);cursor:pointer}
+.bk-days button b{font-weight:900;font-stretch:125%;font-size:22px}
+.bk-days button[aria-pressed="true"]{background:var(--black);border-color:var(--black);color:#fff}
+.bk-times{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:8px}
+.bk-times button{min-height:44px;border:1.5px solid var(--line);border-radius:6px;background:#fff;color:var(--black);font:700 15px/1 var(--font);cursor:pointer}
+.bk-times button[aria-pressed="true"]{background:var(--pink);border-color:var(--pink)}
+.bk-times button.is-taken{color:#A9ABAF;text-decoration:line-through;cursor:not-allowed;background:#F1F1EE}
+.bk-empty{color:var(--muted);font-size:15px}
+.bk-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;border-top:1.5px solid var(--line);padding-top:20px}
+.bk-sum{font-weight:700}
+.bk-go:disabled{background:#C9CACC;color:#6b6d72;cursor:not-allowed}
+@media (max-width:860px){.book .wrap{grid-template-columns:1fr;gap:28px}.bk{padding:20px}}
+
+/* events */
+.events{background:var(--white);border-block:1.5px solid var(--line)}
+.ev{list-style:none;padding:0;margin-top:36px;display:grid;gap:0}
+.ev li{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:24px;align-items:center;padding:22px 0;border-top:1.5px solid var(--line)}
+.ev li:last-child{border-bottom:1.5px solid var(--line)}
+.ev time{font-weight:900;font-stretch:125%;font-size:22px;line-height:1.05}
+.ev h3{font-weight:800;font-stretch:110%;font-size:21px}
+.ev p{color:var(--muted);font-size:16px;margin-top:2px}
+.ev .tag{font-weight:700;font-size:14px;padding:7px 12px;border-radius:999px;background:var(--chalk);white-space:nowrap}
+@media (max-width:700px){.ev li{grid-template-columns:1fr;gap:6px}.ev .tag{justify-self:start}}
+
+/* gallery */
+.gal{list-style:none;padding:0;margin-top:36px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:220px;gap:10px}
+.gal li:nth-child(1){grid-row:span 2}
+.gal li:nth-child(5){grid-column:span 2}
+.gal a{display:block;height:100%;border-radius:8px;overflow:hidden;background:#cfd0cc}
+.gal img{width:100%;height:100%;object-fit:cover}
+@media (max-width:700px){.gal{grid-template-columns:1fr 1fr;grid-auto-rows:160px}.gal li:nth-child(5){grid-column:auto}}
+
+/* visit */
+.visit .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.visit h3{font-weight:900;font-stretch:120%;font-size:22px;margin-bottom:12px}
+.visit address{font-style:normal}
+.visit p+p{margin-top:6px}
+@media (max-width:820px){.visit .wrap{grid-template-columns:1fr;gap:28px}}
+
+footer{background:var(--wall-2);color:#B9BBC0;padding:32px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer a{color:#fff}
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <span>Demo website by KOLABS Agency. Crux Climbing is a made-up business.</span>
+  <a href="../../#work">Back to KOLABS Agency</a>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#"><i aria-hidden="true"><b style="background:#FF4F8B"></b><b style="background:#12B5B0"></b><b style="background:#FFC93C"></b><b style="background:#3E7BFA"></b></i>Crux</a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#grades">Grades</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#book">Book</a>
+      <a href="#events">Events</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-pink" href="#book">Book a taster</a>
+    <button class="menu-btn" type="button" data-menu-toggle aria-controls="nav" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-label="Welcome">
+    <div class="strip">
+      <img src="https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&amp;fit=crop&amp;w=2200&amp;h=1000&amp;q=70" alt="A woman climbing an indoor bouldering wall" width="2200" height="1000">
+    </div>
+    <div class="hero-under">
+      <div class="wrap">
+        <div class="hero-card">
+          <div>
+            <h1>Climb your first wall this weekend.</h1>
+            <p>Bouldering in Kelham Island, Sheffield. No ropes, no harness and no experience needed. Shoes are included in your first session.</p>
+            <div class="acts">
+              <a class="btn btn-pink" href="#book">Book a taster, £15</a>
+              <a class="btn btn-dark" href="#sessions">See sessions</a>
+            </div>
+          </div>
+          <div class="today">
+            <h2>New on the wall this week</h2>
+            <ul>
+              <li><span class="dot" style="background:#FFC93C" aria-hidden="true"></span>12 yellows <small>gentle</small></li>
+              <li><span class="dot" style="background:#12B5B0" aria-hidden="true"></span>9 teals <small>steady</small></li>
+              <li><span class="dot" style="background:#FF4F8B" aria-hidden="true"></span>6 pinks <small>tricky</small></li>
+              <li><span class="dot" style="background:#111214" aria-hidden="true"></span>2 blacks <small>brutal</small></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="hero-pad"></div>
+    </div>
+  </section>
+
+  <section id="grades">
+    <div class="wrap">
+      <h2>The colour tells you how hard it is</h2>
+      <p class="lead">Every route uses holds of one colour. Start on yellow and work your way up. Most people climb their first teal within a month.</p>
+      <ul class="grades">
+        <li><span class="hold" style="background:#FFC93C" aria-hidden="true"></span><h3>Yellow</h3><p>Big holds, like climbing a ladder. Your first visit.</p></li>
+        <li><span class="hold" style="background:#12B5B0" aria-hidden="true"></span><h3>Teal</h3><p>Smaller holds and your first real moves.</p></li>
+        <li><span class="hold" style="background:#3E7BFA" aria-hidden="true"></span><h3>Blue</h3><p>Overhangs. Technique starts to matter.</p></li>
+        <li><span class="hold" style="background:#FF4F8B" aria-hidden="true"></span><h3>Pink</h3><p>Tricky sequences for regular climbers.</p></li>
+        <li><span class="hold" style="background:#111214" aria-hidden="true"></span><h3>Black</h3><p>Our hardest. Strong fingers only.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sessions" id="sessions">
+    <div class="wrap" data-tabs>
+      <h2>Sessions</h2>
+      <p class="lead">Pick the one that fits. Every first-timer gets a ten-minute safety talk on how to fall well.</p>
+      <div class="tablist" role="tablist" aria-label="Session types">
+        <button type="button" role="tab" id="tab-t" aria-controls="p-t" aria-selected="true">First time</button>
+        <button type="button" role="tab" id="tab-k" aria-controls="p-k" aria-selected="false">Kids' club</button>
+        <button type="button" role="tab" id="tab-m" aria-controls="p-m" aria-selected="false">Regulars</button>
+      </div>
+      <div class="panel" role="tabpanel" id="p-t" aria-labelledby="tab-t">
+        <div><h3>Taster session</h3><p>An hour with one of our coaches, then stay and climb as long as you like. Come in comfy clothes you can stretch in.</p></div>
+        <dl><div><dt>Price</dt><dd>£15 with shoes</dd></div><div><dt>Length</dt><dd>1 hour coached</dd></div><div><dt>Ages</dt><dd>14 and over</dd></div><div><dt>When</dt><dd>Daily at 10am and 6pm</dd></div></dl>
+      </div>
+      <div class="panel" role="tabpanel" id="p-k" aria-labelledby="tab-k" hidden>
+        <div><h3>Kids' club</h3><p>Games, challenges and climbing for 6 to 13 year olds, run by DBS-checked coaches. Parents can wait in the café.</p></div>
+        <dl><div><dt>Price</dt><dd>£10 a session</dd></div><div><dt>Length</dt><dd>90 minutes</dd></div><div><dt>Ages</dt><dd>6 to 13</dd></div><div><dt>When</dt><dd>Saturday 9:30am, Wednesday 4:30pm</dd></div></dl>
+      </div>
+      <div class="panel" role="tabpanel" id="p-m" aria-labelledby="tab-m" hidden>
+        <div><h3>Regular climbing</h3><p>Already climbed with us? Turn up any time we're open. New routes go up every Monday.</p></div>
+        <dl><div><dt>Day pass</dt><dd>£11</dd></div><div><dt>10-visit card</dt><dd>£95</dd></div><div><dt>Monthly</dt><dd>£48</dd></div><div><dt>Shoe hire</dt><dd>£4</dd></div></dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <div>
+        <h2>Book a session</h2>
+        <p class="lead">Taster sessions have six places each. Kids' club fills up fast in the school holidays.</p>
+      </div>
+      <div class="bk" data-book data-days="10" data-title="Session booked" data-times="10:00,12:00,16:30,18:00,19:30">
+        <div>
+          <label for="kind" class="sr-only">Session</label>
+          <select id="kind">
+            <option>Taster session, £15</option>
+            <option>Kids' club, £10</option>
+            <option>Day pass, £11</option>
+          </select>
+        </div>
+        <fieldset>
+          <legend>Day</legend>
+          <div class="bk-days" data-days-list></div>
+        </fieldset>
+        <fieldset>
+          <legend>Time</legend>
+          <div class="bk-times" data-times-list></div>
+        </fieldset>
+        <div class="bk-foot">
+          <p class="bk-sum" data-summary aria-live="polite"></p>
+          <button class="btn btn-pink bk-go" type="button" data-confirm>Book session</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="events" id="events">
+    <div class="wrap">
+      <h2>Coming up</h2>
+      <ul class="ev">
+        <li><time datetime="2026-11-07">Sat<br>7 Nov</time><div><h3>Bouldering league, round one</h3><p>Twenty new problems, six weeks to climb them. Teams of four.</p></div><span class="tag">£5 to enter</span></li>
+        <li><time datetime="2026-11-19">Thu<br>19 Nov</time><div><h3>Women's climbing social</h3><p>Coached warm-up, then climbing and pizza.</p></div><span class="tag">Free for members</span></li>
+        <li><time datetime="2026-12-12">Sat<br>12 Dec</time><div><h3>Christmas fancy dress climb</h3><p>Prizes for the best costume that still lets you climb.</p></div><span class="tag">Day pass price</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="photos">
+    <div class="wrap">
+      <h2>On the wall</h2>
+      <p class="lead">Tap a photo to see it bigger.</p>
+      <ul class="gal" data-gallery>
+        <li><a href="https://images.unsplash.com/photo-1689775884478-9ed19b79d659?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Working on the overhang"><img src="https://images.unsplash.com/photo-1689775884478-9ed19b79d659?auto=format&amp;fit=crop&amp;w=700&amp;h=900&amp;q=65" alt="A man climbing up the side of a climbing wall" width="700" height="900" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1696105539018-a73a53770934?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Teal problem on the slab"><img src="https://images.unsplash.com/photo-1696105539018-a73a53770934?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=65" alt="A man climbing a bouldering wall" width="600" height="450" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1730659071194-4c833ac5da4e?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="League night"><img src="https://images.unsplash.com/photo-1730659071194-4c833ac5da4e?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=65" alt="A group of climbers standing around a climbing wall" width="600" height="450" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1675448057779-5461731e6b0d?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Fresh holds, Monday morning"><img src="https://images.unsplash.com/photo-1675448057779-5461731e6b0d?auto=format&amp;fit=crop&amp;w=600&amp;h=450&amp;q=65" alt="Climbing holds on a white wall" width="600" height="450" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1689775884353-b01c7a8ad1b2?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="The comp wall"><img src="https://images.unsplash.com/photo-1689775884353-b01c7a8ad1b2?auto=format&amp;fit=crop&amp;w=900&amp;h=450&amp;q=65" alt="A man climbing on a wall in the gym" width="900" height="450" loading="lazy"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div>
+        <h3>Find us</h3>
+        <address>Crux Climbing<br>Unit 3, Furnace Yard<br>Kelham Island, Sheffield</address>
+        <p class="lead">Ten minutes' walk from the station. Free bike racks and a small car park.</p>
+      </div>
+      <div>
+        <h3>Opening times</h3>
+        <p>Monday to Friday, 10am to 10pm</p>
+        <p>Saturday and Sunday, 9am to 8pm</p>
+      </div>
+      <div>
+        <h3>Questions?</h3>
+        <p><a href="tel:+441632960512">01632&nbsp;960512</a></p>
+        <p class="lead">Changing rooms, lockers and a café with proper coffee.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Crux Climbing is a made-up business for this demo.</span>
+    <span>Website designed by <a href="../../">KOLABS Agency</a></span>
+  </div>
+</footer>
+<script src="../demo.js"></script>
+</body>
+</html>
