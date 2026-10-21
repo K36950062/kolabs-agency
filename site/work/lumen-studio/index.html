@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Lumen Nail and Brow Studio, York (demo website)</title>
+<meta name="description" content="Demo website for a made-up nail and brow studio, designed by KOLABS Agency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../demo.css">
+<style>
+:root{
+  --porcelain:#FFFFFF; --blush:#F4E3DF; --blush-2:#EBD2CC; --plum:#3D1F35; --ink:#2A1A26; --muted:#6E5B67; --gold:#B08D57; --line:#EADBD7;
+  --shade:#8E2B4B;
+  --disp:"Syne","Futura","Trebuchet MS",sans-serif;
+  --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --demo-accent:#3D1F35; --demo-ink:#2A1A26; --demo-font:var(--sans); --demo-radius:2px; --demo-focus:#B08D57;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--porcelain);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,dl,dd,figure,fieldset{margin:0}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+section{padding-block:96px}
+h2{font:700 clamp(32px,4.4vw,50px)/1.05 var(--disp);letter-spacing:-.02em;color:var(--plum)}
+.lead{max-width:50ch;color:var(--muted);margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 28px;font:700 15px/1 var(--sans);letter-spacing:.02em;text-decoration:none;border-radius:2px;border:1.5px solid transparent;cursor:pointer}
+.btn-shade{background:var(--shade);color:#fff;transition:background .4s}
+.btn-shade:hover{filter:brightness(1.12)}
+.btn-line{border-color:var(--plum);color:var(--plum)}
+.btn-line:hover{background:var(--blush)}
+.btn-plum{background:var(--plum);color:#fff}
+
+/* header */
+.top{background:var(--porcelain);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}
+.top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;min-height:72px;gap:20px}
+.nav{display:flex;gap:26px;font-weight:600;font-size:15px}
+.nav a{text-decoration:none}
+.nav a:hover{color:var(--shade)}
+.logo{font:800 26px/1 var(--disp);letter-spacing:.02em;text-decoration:none;color:var(--plum);text-align:center}
+.top .btn{justify-self:end;min-height:42px;padding:0 18px}
+.menu-btn{display:none;justify-self:start;background:none;border:1.5px solid var(--plum);color:var(--plum);border-radius:2px;font:700 14px/1 var(--sans);padding:0 14px;min-height:44px;cursor:pointer}
+@media (max-width:860px){
+  .top .wrap{grid-template-columns:auto minmax(0,1fr) auto;gap:12px}
+  .menu-btn{display:block;order:-1}
+  .logo{grid-column:2}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:#fff;border-bottom:1px solid var(--line);padding:4px 16px 14px}
+  .nav.is-open{display:flex}
+  .nav a{padding:14px 0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:420px){.logo{font-size:21px}.top .btn{padding:0 14px}}
+
+/* hero: centred type, pick a shade and the photo takes on the colour */
+.hero{padding-block:76px 0;text-align:center;background:linear-gradient(var(--porcelain) 0 60%,var(--blush) 60%)}
+.hero h1{font:800 clamp(44px,7.2vw,96px)/.98 var(--disp);letter-spacing:-.035em;color:var(--plum);max-width:14ch;margin:0 auto}
+.hero .sub{margin:22px auto 0;max-width:46ch;font-size:19px;color:var(--muted)}
+.shades{margin-top:34px;display:grid;justify-items:center;gap:12px}
+.shades p{font-weight:600;font-size:15px}
+.shades p b{font-weight:700;color:var(--shade);transition:color .4s}
+.swatches{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.swatches button{width:44px;height:44px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1.5px var(--line);cursor:pointer;padding:0}
+.swatches button[aria-pressed="true"]{box-shadow:0 0 0 2px var(--plum);transform:scale(1.1)}
+.hero .acts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:30px}
+.hero-photo{position:relative;margin-top:56px;aspect-ratio:21/8;overflow:hidden;background:#bba7a3}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-photo::after{content:"";position:absolute;inset:0;background:var(--shade);mix-blend-mode:color;opacity:.55;transition:background .5s}
+@media (max-width:700px){.hero-photo{aspect-ratio:4/3;margin-inline:-16px}.hero{background:linear-gradient(var(--porcelain) 0 70%,var(--blush) 70%)}}
+
+/* treatments */
+.treat{background:var(--blush)}
+.treat .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px}
+.tablist{display:flex;gap:0;border:1.5px solid var(--plum)}
+.tablist button{min-height:46px;padding:0 22px;border:0;background:transparent;color:var(--plum);font:700 15px/1 var(--sans);cursor:pointer}
+.tablist button+button{border-left:1.5px solid var(--plum)}
+.tablist button[aria-selected="true"]{background:var(--plum);color:#fff}
+.menu{list-style:none;padding:0;margin-top:40px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 64px}
+.menu li{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:20px 0;border-bottom:1px solid var(--blush-2)}
+.menu h3{font:700 20px/1.25 var(--disp);color:var(--plum)}
+.menu .pr{font-weight:700;font-size:18px}
+.menu p{grid-column:1/-1;color:var(--muted);font-size:15.5px}
+.menu .mins{font-weight:600;color:var(--gold)}
+@media (max-width:820px){.menu{grid-template-columns:1fr}}
+
+/* booking */
+.book .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}
+.bk{border:1.5px solid var(--plum);padding:30px;display:grid;gap:22px;background:#fff}
+.bk fieldset{border:0;padding:0;min-width:0}
+.bk legend{font:700 15px/1 var(--sans);letter-spacing:.02em;margin-bottom:12px;padding:0;color:var(--plum)}
+.bk select{width:100%;min-height:50px;font:inherit;padding:0 12px;border:1.5px solid var(--line);border-radius:2px;background:#fff;color:var(--ink)}
+.bk-days{display:flex;gap:6px;overflow-x:auto;padding-bottom:6px}
+.bk-days button{flex:none;width:58px;min-height:68px;display:grid;place-items:center;align-content:center;gap:3px;border:1.5px solid var(--line);border-radius:2px;background:#fff;color:var(--ink);font:600 12px/1 var(--sans);cursor:pointer}
+.bk-days button b{font:700 22px/1 var(--disp);color:var(--plum)}
+.bk-days button[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.bk-days button[aria-pressed="true"] b{color:#fff}
+.bk-times{display:grid;grid-template-columns:repeat(auto-fill,minmax(80px,1fr));gap:6px}
+.bk-times button{min-height:44px;border:1.5px solid var(--line);border-radius:2px;background:#fff;color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer}
+.bk-times button[aria-pressed="true"]{background:var(--shade);border-color:var(--shade);color:#fff}
+.bk-times button.is-taken{color:#BFAFB8;text-decoration:line-through;cursor:not-allowed;background:#FBF6F5}
+.bk-empty{color:var(--muted);font-size:15px}
+.bk-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid var(--line);padding-top:20px}
+.bk-sum{font-weight:600;color:var(--plum)}
+.bk-go:disabled{background:#D9CCD3;color:#fff;cursor:not-allowed}
+@media (max-width:860px){.book .wrap{grid-template-columns:1fr;gap:28px}.bk{padding:20px}}
+
+/* gallery */
+.work{padding-top:0}
+.gal{list-style:none;padding:0;margin-top:36px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+.gal li{grid-column:span 2}
+.gal li:nth-child(4),.gal li:nth-child(5){grid-column:span 3}
+.gal a{display:block;overflow:hidden;background:var(--blush)}
+.gal img{width:100%;aspect-ratio:1;object-fit:cover;transition:transform .4s}
+.gal li:nth-child(4) img,.gal li:nth-child(5) img{aspect-ratio:3/2}
+.gal a:hover img{transform:scale(1.04)}
+@media (max-width:700px){.gal{grid-template-columns:1fr 1fr}.gal li,.gal li:nth-child(4),.gal li:nth-child(5){grid-column:auto}.gal li:nth-child(4) img,.gal li:nth-child(5) img{aspect-ratio:1}}
+
+/* vouchers */
+.vouch{background:var(--plum);color:#fff}
+.vouch h2{color:#fff}
+.vouch .lead{color:#D9C7D2}
+.vouch .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:center}
+.vouch form{display:grid;gap:14px}
+.vouch label{font-weight:600;font-size:15px}
+.vouch input,.vouch select{width:100%;min-height:50px;margin-top:6px;font:inherit;padding:0 14px;border:1.5px solid #6c4a62;border-radius:2px;background:#4b2a43;color:#fff}
+.vouch input::placeholder{color:#B9A2B1}
+.vouch .btn{background:var(--gold);color:var(--ink);justify-self:start;margin-top:6px}
+.card-v{aspect-ratio:1.6;border-radius:14px;background:linear-gradient(135deg,var(--blush),#fff);color:var(--plum);padding:30px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);max-width:440px}
+.card-v b{font:800 28px/1 var(--disp)}
+.card-v span{font:700 46px/1 var(--disp);color:var(--shade);transition:color .4s}
+@media (max-width:860px){.vouch .wrap{grid-template-columns:1fr;gap:36px}}
+
+/* visit */
+.visit .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.visit h3{font:700 20px/1.2 var(--disp);color:var(--plum);margin-bottom:12px}
+.visit address{font-style:normal}
+@media (max-width:820px){.visit .wrap{grid-template-columns:1fr;gap:26px}}
+
+footer{border-top:1px solid var(--line);color:var(--muted);padding:30px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+</style>
+</head>
+<body>
+<div class="demo-bar">
+  <span>Demo website by KOLABS Agency. Lumen Nail and Brow Studio is a made-up business.</span>
+  <a href="../../#work">Back to KOLABS Agency</a>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#treatments">Treatments</a>
+      <a href="#work">Our work</a>
+      <a href="#vouchers">Gift vouchers</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="logo" href="#">LUMEN</a>
+    <a class="btn btn-plum" href="#book">Book</a>
+    <button class="menu-btn" type="button" data-menu-toggle aria-controls="nav" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-label="Welcome">
+    <div class="wrap">
+      <h1>Nails and brows, done properly.</h1>
+      <p class="sub">Gel manicures that last three weeks, brows shaped to your face, and a quiet hour to yourself on Gillygate, York.</p>
+      <div class="shades">
+        <p id="shade-label">This month's shades: <b id="shade-name">Plum wine</b></p>
+        <div class="swatches" role="group" aria-labelledby="shade-label">
+          <button type="button" aria-pressed="true" data-shade="#8E2B4B" data-name="Plum wine" style="background:#8E2B4B"><span class="sr-only">Plum wine</span></button>
+          <button type="button" aria-pressed="false" data-shade="#C2185B" data-name="Raspberry" style="background:#C2185B"><span class="sr-only">Raspberry</span></button>
+          <button type="button" aria-pressed="false" data-shade="#D98C7A" data-name="Peach nude" style="background:#D98C7A"><span class="sr-only">Peach nude</span></button>
+          <button type="button" aria-pressed="false" data-shade="#5B6B8C" data-name="Storm blue" style="background:#5B6B8C"><span class="sr-only">Storm blue</span></button>
+          <button type="button" aria-pressed="false" data-shade="#5E7D5B" data-name="Sage" style="background:#5E7D5B"><span class="sr-only">Sage</span></button>
+          <button type="button" aria-pressed="false" data-shade="#2B2B2B" data-name="Ink" style="background:#2B2B2B"><span class="sr-only">Ink</span></button>
+        </div>
+      </div>
+      <div class="acts">
+        <a class="btn btn-shade" href="#book">Book an appointment</a>
+        <a class="btn btn-line" href="#treatments">See treatments</a>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1619607146034-5a05296c8f9a?auto=format&amp;fit=crop&amp;w=2000&amp;h=760&amp;q=70" alt="Rows of nail polish bottles on gold shelves" width="2000" height="760">
+      </div>
+    </div>
+  </section>
+
+  <section class="treat" id="treatments">
+    <div class="wrap" data-tabs>
+      <div class="head">
+        <div>
+          <h2>Treatments</h2>
+          <p class="lead">Times include a proper consultation. Patch tests are free and take five minutes.</p>
+        </div>
+        <div class="tablist" role="tablist" aria-label="Treatments">
+          <button type="button" role="tab" id="tab-n" aria-controls="p-n" aria-selected="true">Nails</button>
+          <button type="button" role="tab" id="tab-b" aria-controls="p-b" aria-selected="false">Brows</button>
+          <button type="button" role="tab" id="tab-l" aria-controls="p-l" aria-selected="false">Lashes</button>
+        </div>
+      </div>
+      <div role="tabpanel" id="p-n" aria-labelledby="tab-n">
+        <ul class="menu">
+          <li><h3>Gel manicure</h3><span class="pr">£30</span><p><span class="mins">45 min.</span> Shape, cuticle care and gel colour that lasts up to three weeks.</p></li>
+          <li><h3>BIAB overlay</h3><span class="pr">£38</span><p><span class="mins">60 min.</span> A builder gel that strengthens your own nails while they grow.</p></li>
+          <li><h3>Gel pedicure</h3><span class="pr">£35</span><p><span class="mins">50 min.</span> Soak, file, hard skin removal and gel colour.</p></li>
+          <li><h3>Nail art</h3><span class="pr">from £5</span><p><span class="mins">+15 min.</span> French tips, chrome, marble or a design you bring in.</p></li>
+          <li><h3>Gel removal</h3><span class="pr">£10</span><p><span class="mins">20 min.</span> Free when you rebook with us.</p></li>
+        </ul>
+      </div>
+      <div role="tabpanel" id="p-b" aria-labelledby="tab-b" hidden>
+        <ul class="menu">
+          <li><h3>Brow shape</h3><span class="pr">£16</span><p><span class="mins">20 min.</span> Wax and tweeze, mapped to your face shape.</p></li>
+          <li><h3>Brow lamination</h3><span class="pr">£40</span><p><span class="mins">45 min.</span> Fuller, brushed-up brows for six to eight weeks.</p></li>
+          <li><h3>Tint and shape</h3><span class="pr">£24</span><p><span class="mins">30 min.</span> Colour matched to your hair, then shaped.</p></li>
+        </ul>
+      </div>
+      <div role="tabpanel" id="p-l" aria-labelledby="tab-l" hidden>
+        <ul class="menu">
+          <li><h3>Lash lift and tint</h3><span class="pr">£42</span><p><span class="mins">50 min.</span> Curled, darker lashes for six weeks, no extensions needed.</p></li>
+          <li><h3>Lash tint</h3><span class="pr">£15</span><p><span class="mins">15 min.</span> Like mascara that doesn't come off in the rain.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <div>
+        <h2>Book an appointment</h2>
+        <p class="lead">New to us? Book any treatment and we'll start with a five-minute chat about what you'd like.</p>
+      </div>
+      <div class="bk" data-book data-days="12" data-closed="0,1" data-title="Appointment booked"
+           data-times="09:30,10:30,11:30,13:00,14:00,15:00,16:00,17:30">
+        <div>
+          <label for="tr" class="sr-only">Treatment</label>
+          <select id="tr">
+            <option>Gel manicure, £30</option>
+            <option>BIAB overlay, £38</option>
+            <option>Gel pedicure, £35</option>
+            <option>Brow lamination, £40</option>
+            <option>Tint and shape, £24</option>
+            <option>Lash lift and tint, £42</option>
+          </select>
+        </div>
+        <fieldset>
+          <legend>Day</legend>
+          <div class="bk-days" data-days-list></div>
+        </fieldset>
+        <fieldset>
+          <legend>Time</legend>
+          <div class="bk-times" data-times-list></div>
+        </fieldset>
+        <div class="bk-foot">
+          <p class="bk-sum" data-summary aria-live="polite"></p>
+          <button class="btn btn-shade bk-go" type="button" data-confirm>Book appointment</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="wrap">
+      <h2>Recent sets</h2>
+      <p class="lead">Tap any photo to see the detail.</p>
+      <ul class="gal" data-gallery>
+        <li><a href="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Tortoiseshell and black"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=65" alt="Nails painted in black and tortoiseshell with a gold ring" width="600" height="600" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1772322586785-3a34772cbc61?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Marbled tips"><img src="https://images.unsplash.com/photo-1772322586785-3a34772cbc61?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=65" alt="White nails with purple and black marbled tips" width="600" height="600" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1610992015762-45dca7fa3a85?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Soft pink BIAB"><img src="https://images.unsplash.com/photo-1610992015762-45dca7fa3a85?auto=format&amp;fit=crop&amp;w=600&amp;h=600&amp;q=65" alt="Light pink manicured nails resting on a white surface" width="600" height="600" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1772322586754-34c9e6f5be6f?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="French with a little glitter"><img src="https://images.unsplash.com/photo-1772322586754-34c9e6f5be6f?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=65" alt="A French manicure with glitter accents" width="900" height="600" loading="lazy"></a></li>
+        <li><a href="https://images.unsplash.com/photo-1772322586702-73125782bd99?auto=format&amp;fit=crop&amp;w=1400&amp;q=75" data-caption="Blue ombre"><img src="https://images.unsplash.com/photo-1772322586702-73125782bd99?auto=format&amp;fit=crop&amp;w=900&amp;h=600&amp;q=65" alt="Nails with a blue and white ombre" width="900" height="600" loading="lazy"></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="vouch" id="vouchers">
+    <div class="wrap">
+      <div>
+        <h2>Gift vouchers</h2>
+        <p class="lead">Emailed straight away, valid for a year, and they can be spent on anything.</p>
+        <form data-demo-form data-title="Voucher ordered" data-thanks="Your voucher is on its way to the email address you gave." style="margin-top:28px">
+          <label>Amount
+            <select name="amount" id="v-amount">
+              <option>£25</option><option selected>£50</option><option>£75</option><option>£100</option>
+            </select>
+          </label>
+          <label>Who is it for?
+            <input name="to" type="text" placeholder="Their name" required autocomplete="off">
+          </label>
+          <label>Send it to
+            <input name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+          </label>
+          <button class="btn" type="submit">Buy voucher</button>
+        </form>
+      </div>
+      <div class="card-v" aria-hidden="true"><b>LUMEN</b><span id="v-show">£50</span></div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div><h3>Find us</h3><address>Lumen Nail and Brow Studio<br>First floor, Gillygate<br>York</address></div>
+      <div><h3>Opening times</h3><p>Tuesday to Friday, 9:30am to 7pm<br>Saturday, 9am to 4pm</p></div>
+      <div><h3>Get in touch</h3><p><a href="tel:+441632960907">01632&nbsp;960907</a></p><p class="lead">Upstairs studio. Please tell us if you need step-free access and we'll meet you downstairs.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Lumen Nail and Brow Studio is a made-up business for this demo.</span>
+    <span>Website designed by <a href="../../">KOLABS Agency</a></span>
+  </div>
+</footer>
+<script src="../demo.js"></script>
+<script>
+/* shade picker: the photo, buttons and voucher take on the shade you pick */
+(function(){
+  var btns=document.querySelectorAll('[data-shade]'),root=document.documentElement,name=document.getElementById('shade-name');
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    btns.forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    root.style.setProperty('--shade',b.getAttribute('data-shade'));
+    name.textContent=b.getAttribute('data-name');
+  });});
+  var amt=document.getElementById('v-amount'),show=document.getElementById('v-show');
+  amt.addEventListener('change',function(){show.textContent=amt.value;});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+/* KOLABS demo sites: shared parts (demo bar, dialogs, photo viewer).
+   Each demo page sets --demo-accent, --demo-ink and --demo-font, and styles everything else itself. */
+.demo-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:4px 14px;padding:9px 16px;background:#000;color:#fff;font:500 13px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center}
+.demo-bar a{color:#fff;font-weight:700;text-underline-offset:3px}
+.demo-bar a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+.demo-dialog,.lb{border:0;padding:0;color:var(--demo-ink,#111);font-family:var(--demo-font,system-ui,sans-serif)}
+.demo-dialog::backdrop,.lb::backdrop{background:rgba(0,0,0,.72)}
+.demo-dialog{width:min(420px,calc(100vw - 32px));border-radius:var(--demo-radius,10px);background:#fff;padding:26px 24px 22px}
+.demo-dialog h2{margin:0 0 10px;font-size:22px;line-height:1.2}
+.demo-dialog p{margin:0 0 10px;line-height:1.5}
+.demo-dialog .demo-note{font-size:14px;color:#555;margin-top:14px}
+.demo-dialog button{margin-top:12px;font:inherit;font-weight:700;padding:12px 20px;min-height:44px;border:0;border-radius:var(--demo-radius,8px);background:var(--demo-accent,#111);color:var(--demo-on-accent,#fff);cursor:pointer}
+
+.lb{background:transparent;max-width:none;max-height:none;width:100vw;height:100vh;margin:0}
+.lb[open]{display:grid;place-items:center}
+.lb figure{margin:0;display:grid;gap:12px;justify-items:center;padding:56px 16px 24px}
+.lb img{max-width:min(1100px,calc(100vw - 32px));max-height:calc(100vh - 150px);width:auto;height:auto;border-radius:4px;background:#222}
+.lb figcaption{color:#fff;font-size:15px;text-align:center}
+.lb-btn{position:fixed;width:48px;height:48px;border-radius:50%;border:0;background:#fff;color:#000;font:700 22px/1 system-ui,sans-serif;cursor:pointer;display:grid;place-items:center}
+.lb-close{top:14px;right:14px}
+.lb-prev{left:14px;top:50%;transform:translateY(-50%)}
+.lb-next{right:14px;top:50%;transform:translateY(-50%)}
+.lb-btn:focus-visible,.demo-dialog button:focus-visible{outline:3px solid var(--demo-focus,#4D8DFF);outline-offset:3px}
+@media (max-width:600px){.lb-prev,.lb-next{top:auto;bottom:14px;transform:none}}
+.bk-empty{grid-column:1/-1;margin:0}
+[hidden]{display:none!important}
+
+/* floating "Back to KOLABS" button, added to every demo by demo.js */
+.kolabs-back{position:fixed;z-index:1000;left:max(16px,env(safe-area-inset-left,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:10px;padding:10px 16px 10px 12px;background:#000;color:#fff;border:1.5px solid rgba(255,255,255,.22);border-radius:999px;font:600 14px/1 system-ui,-apple-system,"Segoe UI",sans-serif;text-decoration:none;box-shadow:0 10px 24px -8px rgba(0,0,0,.55);transition:background .15s}
+.kolabs-back:hover{background:#1A3CFF}
+.kolabs-back:focus-visible{outline:3px solid #4D8DFF;outline-offset:3px}
+.kolabs-back svg{flex:none}
+@media print{.kolabs-back{display:none}}
+/* keep the footer text clear of the floating button */
+body>footer{padding-bottom:84px!important}

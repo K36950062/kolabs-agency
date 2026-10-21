@@ -52,7 +52,7 @@ npx serve site                   # preview at http://localhost:3000
 
 - [x] Real email and phone number in the Contact section
 - [x] "Book a 20-minute call" goes to Calendly
-- [ ] Set the Calendly event length to 20 minutes, to match the site
+- [x] Set the Calendly event length to 20 minutes, to match the site
 - [ ] Share the two concept pages privately with each business when pitching
 - [ ] Swap the placeholder logo for the final KOLABS mark
 - [ ] Google: page title and description, sitemap, Search Console
