@@ -40,12 +40,14 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # claude.ai pages need a login, so a bot can't check them.
+          # The sitemap link in robots.txt only exists once this deploy is live, so skip it.
           args: >-
             --no-progress
             --accept 200,204,301,302,403,429
             --exclude claude.ai
             --exclude fonts.googleapis.com
             --exclude fonts.gstatic.com
+            --exclude kolabsagency.co.uk/sitemap.xml
             site/
           fail: true
 
