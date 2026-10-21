@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* base reset */
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{margin:0}
 img{max-width:100%}
 [hidden]{display:none!important}
@@ -98,8 +98,9 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 
 /* work: gallery of demo sites */
 .demos{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.dc a{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--ink);background:var(--bg);border:1.5px solid var(--ink);border-radius:10px;overflow:hidden;transition:transform .15s,box-shadow .15s}
-.dc a:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--blue)}
+.dc a{display:flex;flex-direction:column;height:100%;text-decoration:none;color:var(--ink);background:var(--bg);border:1.5px solid var(--ink);border-radius:10px;overflow:hidden}
+/* the lift effect only on devices with a real mouse, so taps on phones never make cards jump */
+@media (hover:hover) and (pointer:fine){.dc a{transition:transform .15s,box-shadow .15s}.dc a:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--blue)}}
 .dc a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
 .dc-img{display:block;aspect-ratio:16/11;background:var(--c1)}
 .dc-img img{width:100%;height:100%;object-fit:cover}
@@ -113,11 +114,19 @@ header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;backgroun
 .note{color:var(--muted);font-size:15px;max-width:70ch}
 .work-foot{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
 .work-foot .note{flex:1 1 360px}
-@media (prefers-reduced-motion:reduce){.dc a{transition:none}.dc a:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.dc a{transition:none!important}.dc a:hover{transform:none!important}}
 @media (max-width:1000px){.demos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* phones: a simple stacked list, with no sideways scrolling */
 @media (max-width:640px){
-  .demos{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-16px;padding:4px 16px 14px;scroll-padding-inline:16px}
-  .dc{flex:0 0 78%;scroll-snap-align:start}
+  .demos{grid-template-columns:1fr;gap:10px}
+  .dc a{display:grid;grid-template-columns:96px minmax(0,1fr);grid-template-areas:"img band" "img body";border-left:6px solid var(--c1)}
+  .dc-img{grid-area:img;aspect-ratio:auto;height:100%;min-height:96px}
+  .dc-band{grid-area:band;background:none;color:var(--ink);padding:12px 14px 0;justify-content:flex-start}
+  .dc-band h3{font-size:16px}
+  .dc-band i{width:10px;height:10px;box-shadow:0 0 0 2px var(--c1)}
+  .dc-body{grid-area:body;padding:2px 14px 12px;gap:2px}
+  .dc-type{font-weight:600;font-size:15px}
+  .dc-try{font-size:14px}
 }
 
 /* leaks */
@@ -707,7 +716,7 @@ footer a{color:var(--muted)}
         <details><summary>What's not included in the price?</summary><p>A few things are paid directly to other companies: your domain name, any booking software subscription, and card payment fees when customers pay online. We'll tell you upfront which ones apply to you.</p></details>
         <details><summary>Can I start small and upgrade later?</summary><p>Yes. Start with Starter or Growth and add booking, events or editing later. You only pay the difference in the work involved.</p></details>
         <details><summary>What do you need from me?</summary><p>Your logo, your best photos, your prices, and access to your domain and booking system. We handle everything else.</p></details>
-        <details><summary>Who are you?</summary><p>KOLABS Agency is part of something bigger: <b>KOLABS, the community</b>. KOLABS brings together people who build real projects and skills, across coding, business and personal growth. The agency is where that community builds websites for real businesses. We're new, which is why our first five clients get founding prices and direct access to the people building their site.</p></details>
+        <details><summary>Who is KOLABS?</summary><p>KOLABS Agency is part of something bigger: <b>KOLABS, the community</b>. KOLABS brings together people who build real projects and skills, across coding, business and personal growth. The agency is where that community builds websites for real businesses. We're new, which is why our first five clients get founding prices and direct access to the people building their site.</p></details>
       </div>
     </div>
   </section>
