@@ -35,3 +35,4 @@
 @media print{.kolabs-back{display:none}}
 /* keep the footer text clear of the floating button */
 body>footer{padding-bottom:84px!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
