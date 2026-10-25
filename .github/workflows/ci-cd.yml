@@ -47,7 +47,7 @@ jobs:
             --exclude claude.ai
             --exclude fonts.googleapis.com
             --exclude fonts.gstatic.com
-            --exclude kolabsagency.co.uk/sitemap.xml
+            --exclude kolabsagency.com/sitemap.xml
             site/
           fail: true
 
