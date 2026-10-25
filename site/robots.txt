@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kolabsagency.co.uk/sitemap.xml
+Sitemap: https://kolabsagency.com/sitemap.xml
