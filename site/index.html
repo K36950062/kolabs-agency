@@ -377,6 +377,17 @@ footer a{color:var(--muted)}
 
 /* section 7: faq links */
 .faq details p a{color:var(--blue);font-weight:600}
+/* Team: the people clients deal with. Avatars are drawn in the page, so they follow light and dark mode. */
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.member{border:1.5px solid var(--ink);border-radius:10px;padding:24px;display:grid;grid-template-columns:128px minmax(0,1fr);gap:24px;align-items:start;background:var(--bg)}
+.member svg{width:128px;height:128px;display:block}
+.member h3{font-size:26px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.member .role{font:600 12px/1.35 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-top:8px}
+.member .bio{color:var(--muted);font-size:16px;margin-top:12px;max-width:42ch}
+.chips{list-style:none;padding:0;margin-top:16px;display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font:600 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;background:var(--blue-soft);color:var(--blue-ink);padding:7px 8px;border-radius:3px}
+@media (max-width:900px){.team{grid-template-columns:1fr;max-width:620px}}
+@media (max-width:520px){.member{grid-template-columns:1fr;gap:16px;padding:20px}.member svg{width:104px;height:104px}}
 </style>
 </head>
 <body>
@@ -392,6 +403,7 @@ footer a{color:var(--muted)}
       <a href="#work">Work</a>
       <a href="#pricing">Pricing</a>
       <a href="#process">How it works</a>
+      <a href="#team">Team</a>
       <a href="#faq">FAQ</a>
     </nav>
     <a class="btn btn-primary" href="https://calendly.com/kolabs2024/20min" target="_blank" rel="noopener">Book a call</a>
@@ -726,6 +738,70 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
+  <section id="team">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">The team</p>
+        <h2>The people building your site.</h2>
+        <p class="lede">No account managers and no outsourcing. You talk directly to the people doing the work.</p>
+      </div>
+      <div class="team">
+        <article class="member">
+          <svg viewBox="0 0 160 160" role="img" aria-label="Illustration of a developer at a laptop">
+            <rect width="160" height="160" rx="12" fill="var(--blue-soft)"/>
+            <rect x="110" y="18" width="36" height="24" rx="5" fill="var(--blue)"/>
+            <text x="128" y="35" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="600" fill="#FFFFFF">{ }</text>
+            <circle cx="80" cy="56" r="21" fill="var(--ink)"/>
+            <path d="M36 146c0-32 19-50 44-50s44 18 44 50z" fill="var(--ink)"/>
+            <rect x="44" y="106" width="72" height="42" rx="4" fill="var(--blue)"/>
+            <text x="80" y="133" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="15" font-weight="600" fill="#FFFFFF">&lt;/&gt;</text>
+            <rect x="30" y="146" width="100" height="6" rx="3" fill="var(--blue)"/>
+          </svg>
+          <div>
+            <h3>Kevin</h3>
+            <p class="role">Founder &middot; Developer</p>
+            <p class="bio">Designs and builds every KOLABS site, from the first mock-up to launch day.</p>
+            <ul class="chips">
+              <li>Design</li>
+              <li>Development</li>
+              <li>Launch</li>
+            </ul>
+          </div>
+        </article>
+        <article class="member">
+          <svg viewBox="0 0 160 160" role="img" aria-label="Illustration of a person with a phone, messages and likes">
+            <rect width="160" height="160" rx="12" fill="var(--blue-soft)"/>
+            <rect x="14" y="18" width="46" height="28" rx="8" fill="var(--blue)"/>
+            <path d="M24 44l-4 10 13-8z" fill="var(--blue)"/>
+            <circle cx="28" cy="32" r="3" fill="#FFFFFF"/>
+            <circle cx="37" cy="32" r="3" fill="#FFFFFF"/>
+            <circle cx="46" cy="32" r="3" fill="#FFFFFF"/>
+            <circle cx="128" cy="32" r="16" fill="var(--bg)" stroke="var(--blue)" stroke-width="3"/>
+            <path d="M128 41c-7-5-10-8-10-12a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 4-3 7-10 12z" fill="var(--blue)"/>
+            <circle cx="72" cy="56" r="21" fill="var(--ink)"/>
+            <path d="M28 146c0-32 19-50 44-50s44 18 44 50z" fill="var(--ink)"/>
+            <rect x="98" y="88" width="30" height="52" rx="6" fill="var(--blue)"/>
+            <rect x="102" y="94" width="22" height="34" rx="2" fill="var(--bg)"/>
+            <rect x="105" y="99" width="16" height="4" rx="2" fill="var(--blue)"/>
+            <rect x="105" y="107" width="11" height="4" rx="2" fill="var(--blue)"/>
+            <rect x="105" y="115" width="14" height="4" rx="2" fill="var(--blue)"/>
+            <circle cx="113" cy="134" r="2.5" fill="#FFFFFF"/>
+          </svg>
+          <div>
+            <h3>John</h3>
+            <p class="role">Co-executive &middot; Clients &amp; social media</p>
+            <p class="bio">Looks after our clients from the first call until your site is live, and manages KOLABS on social media.</p>
+            <ul class="chips">
+              <li>Client care</li>
+              <li>Updates</li>
+              <li>Social media</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="faq" id="faq">
     <div class="wrap">
       <div class="sec-head" style="margin-bottom:0">
@@ -739,7 +815,7 @@ footer a{color:var(--muted)}
         <details><summary>What's not included in the price?</summary><p>A few things are paid directly to other companies: your domain name, any booking software subscription, and card payment fees when customers pay online. We'll tell you upfront which ones apply to you.</p></details>
         <details><summary>Can I start small and upgrade later?</summary><p>Yes. Start with Starter or Growth and add booking, events or editing later. You only pay the difference in the work involved.</p></details>
         <details><summary>What do you need from me?</summary><p>Your logo, your best photos, your prices, and access to your domain and booking system. We handle everything else.</p></details>
-        <details><summary>Who is KOLABS?</summary><p>KOLABS Agency is part of something bigger: <b>KOLABS, the community</b>. KOLABS brings together people who build real projects and skills, across coding, business and personal growth. The agency is where that community builds websites for real businesses. We're new, which is why our first five clients get founding prices and direct access to the people building their site.</p></details>
+        <details><summary>Who is KOLABS?</summary><p>KOLABS Agency is part of something bigger: <b>KOLABS, the community</b>. KOLABS brings together people who build real projects and skills, across coding, business and personal growth. The agency is where that community builds websites for real businesses. We're new, which is why our first five clients get founding prices and direct access to the people building their site. <a href="#team">Meet the team</a>.</p></details>
       </div>
     </div>
   </section>
